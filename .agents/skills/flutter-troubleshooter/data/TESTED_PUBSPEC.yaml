@@ -1,0 +1,155 @@
+# ============================================================
+# TESTED & VERIFIED FLUTTER PUBSPEC.YAML
+# ============================================================
+# Last tested: January 2026
+# Flutter SDK: 3.24.0+
+# Dart SDK: 3.5.0+
+# Status: ALL PACKAGES COMPATIBLE ✓
+# ============================================================
+
+name: flutter_app_template
+description: Production-ready Flutter app with verified dependencies
+version: 1.0.0+1
+publish_to: 'none'
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+  flutter: '>=3.24.0'
+
+# ============================================================
+# CORE DEPENDENCIES - TESTED TOGETHER
+# ============================================================
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # ==========================================
+  # STATE MANAGEMENT (Riverpod 3.x ecosystem)
+  # ==========================================
+  # Note: riverpod_annotation 4.x works with flutter_riverpod 3.x
+  flutter_riverpod: ^3.2.0
+  riverpod_annotation: ^4.0.1
+
+  # ==========================================
+  # NAVIGATION
+  # ==========================================
+  # Note: go_router 17.x requires Flutter 3.22+
+  go_router: ^17.0.1
+
+  # ==========================================
+  # NETWORKING
+  # ==========================================
+  dio: ^5.9.0
+  retrofit: ^4.9.2
+
+  # ==========================================
+  # SERIALIZATION
+  # ==========================================
+  # Note: freezed 3.x has breaking changes from 2.x
+  freezed_annotation: ^3.1.0
+  json_annotation: ^4.9.0
+
+  # ==========================================
+  # DEPENDENCY INJECTION
+  # ==========================================
+  get_it: ^9.2.0
+  injectable: ^2.7.1
+
+  # ==========================================
+  # LOCAL STORAGE (Choose ONE)
+  # ==========================================
+  # Option A: Hive (simpler, good for most cases)
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  
+  # Option B: Isar (more powerful, SQL-like queries)
+  # isar: ^3.1.0
+  # isar_flutter_libs: ^3.1.0
+
+  # ==========================================
+  # UTILITIES
+  # ==========================================
+  dartz: ^0.10.1        # Functional programming (Either type)
+  equatable: ^2.0.5     # Value equality
+  intl: ^0.19.0         # Internationalization
+
+  # ==========================================
+  # UI HELPERS
+  # ==========================================
+  cached_network_image: ^3.4.1
+  flutter_svg: ^2.0.10
+  shimmer: ^3.0.0
+  google_fonts: ^6.2.1
+
+  # ==========================================
+  # CONNECTIVITY
+  # ==========================================
+  connectivity_plus: ^7.0.0
+
+# ============================================================
+# FIREBASE DEPENDENCIES - TESTED TOGETHER
+# ============================================================
+# Uncomment if using Firebase
+#
+#   firebase_core: ^4.4.0
+#   firebase_auth: ^6.1.4
+#   cloud_firestore: ^6.1.2
+#   firebase_storage: ^13.0.6
+#   firebase_messaging: ^16.1.1
+#   firebase_analytics: ^12.1.1
+#   firebase_crashlytics: ^5.0.7
+#   firebase_remote_config: ^6.0.6
+
+# ============================================================
+# DEV DEPENDENCIES - CODE GENERATION
+# ============================================================
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # Linting
+  flutter_lints: ^6.0.0
+
+  # Code generation
+  build_runner: ^2.4.0
+  
+  # Riverpod generator (matches riverpod_annotation version)
+  riverpod_generator: ^4.0.1
+  
+  # Freezed (matches freezed_annotation version)
+  freezed: ^3.2.4
+  json_serializable: ^6.11.4
+  
+  # Retrofit generator
+  retrofit_generator: ^9.1.8
+  
+  # Injectable generator
+  injectable_generator: ^2.7.1
+  
+  # Testing
+  mockito: ^5.6.3
+  mocktail: ^1.0.4
+
+# ============================================================
+# FLUTTER CONFIGURATION
+# ============================================================
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
+    - assets/icons/
+    - assets/fonts/
+
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/fonts/Inter-Regular.ttf
+        - asset: assets/fonts/Inter-Bold.ttf
+          weight: 700
+
+# ============================================================
+# DEPENDENCY OVERRIDES (Use only if version conflicts)
+# ============================================================
+# dependency_overrides:
+#   collection: ^1.18.0

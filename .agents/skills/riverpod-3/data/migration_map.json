@@ -1,0 +1,62 @@
+{
+  "provider_migrations": {
+    "StateNotifier": {
+      "target": "Notifier",
+      "pattern": "@riverpod class Name extends _$Name",
+      "key_change": "Logic moves from constructor to build() method",
+      "ref_access": "Available as this.ref"
+    },
+    "StateNotifierProvider": {
+      "target": "NotifierProvider (auto-generated)",
+      "pattern": "Generated from @riverpod class",
+      "key_change": "No manual provider definition needed"
+    },
+    "ChangeNotifier": {
+      "target": "AsyncNotifier or avoid",
+      "pattern": "@riverpod class Name extends _$Name",
+      "key_change": "Use immutable state, avoid notifyListeners()",
+      "reason": "Mutable state obscures transitions"
+    },
+    "StateProvider": {
+      "target": "Notifier for logic, direct value for simple",
+      "pattern": "@riverpod int counter(Ref ref) => 0;",
+      "key_change": "Use Notifier if any methods needed"
+    },
+    "FutureProvider.family": {
+      "target": "Function with parameters",
+      "pattern": "@riverpod Future<T> name(Ref ref, {required String id})",
+      "key_change": "Parameters become function arguments"
+    },
+    "StreamProvider": {
+      "target": "Same but generated",
+      "pattern": "@riverpod Stream<T> name(Ref ref)",
+      "key_change": "Return stream directly"
+    }
+  },
+
+  "ref_api_changes": {
+    "unified_ref": {
+      "before": "FutureProviderRef, StreamProviderRef, etc.",
+      "after": "Single Ref interface",
+      "benefit": "Utility functions work across all provider types"
+    },
+    "equality_check": {
+      "before": "Mixed identical() and ==",
+      "after": "Always uses == operator",
+      "benefit": "Consistent rebuild prevention"
+    }
+  },
+
+  "initialization_changes": {
+    "StateNotifier_constructor": {
+      "problem": "Dependencies read before provider mounted",
+      "solution": "Use build() method in Notifier",
+      "example": "ref.watch(otherProvider) safe in build()"
+    },
+    "family_parameters": {
+      "problem": "Tuple logic for multiple args",
+      "solution": "Function signature with named/positional params",
+      "example": "(Ref ref, {required String id, int limit = 20})"
+    }
+  }
+}

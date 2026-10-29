@@ -1,0 +1,58 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-01-22",
+  "effective_patterns": [
+    {
+      "pattern": "XML tags for structure",
+      "why": "Claude fine-tuned to respect XML boundaries, boosts attention weights",
+      "example": "<context>...</context> not 'Context: ...'"
+    },
+    {
+      "pattern": "Specific persona over generic",
+      "why": "Activates expert vectors in latent space",
+      "example": "'Senior Python Engineer' not 'helpful assistant'"
+    },
+    {
+      "pattern": "Prefill assistant response",
+      "why": "Forces immediate structured output, saves tokens",
+      "example": "End with { to force JSON start"
+    },
+    {
+      "pattern": "Uncertainty protocol",
+      "why": "Prevents hallucination by giving explicit escape hatch",
+      "example": "<status>MISSING_INFO</status>"
+    },
+    {
+      "pattern": "Tables over bullets",
+      "why": "Higher information density, faster parsing",
+      "example": "| Key | Value | not - Key: Value"
+    },
+    {
+      "pattern": "JSON for data, MD for instructions",
+      "why": "Separation of concerns, machine-readable data",
+      "example": "data/config.json not inline YAML"
+    }
+  ],
+  "anti_patterns": [
+    {
+      "pattern": "Verbose explanations",
+      "why": "Wastes tokens, dilutes attention",
+      "fix": "Compress to code examples or tables"
+    },
+    {
+      "pattern": "Monolithic prompts",
+      "why": "Context limits, reasoning degradation",
+      "fix": "Tripartite: Instructions + Tools + Knowledge"
+    },
+    {
+      "pattern": "No output schema",
+      "why": "Non-deterministic output, integration failures",
+      "fix": "Always specify JSON schema in output_format"
+    },
+    {
+      "pattern": "Buried critical instructions",
+      "why": "Lost-in-the-middle phenomenon",
+      "fix": "Critical rules at START and END of prompt"
+    }
+  ]
+}

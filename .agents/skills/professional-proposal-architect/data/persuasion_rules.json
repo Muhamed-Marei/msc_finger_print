@@ -1,0 +1,74 @@
+{
+  "methodology": "POWeR — Plan, Organize, Write, Examine, Revise",
+  "attribution": "APMP / Shipley Associates",
+  "core_principle": "Writing without meticulous prior planning is a severe waste of corporate resources",
+  "customer_centric_language": {
+    "rule": "Customer name appears 3× more frequently than bidder name",
+    "paragraph_structure": "Open with stated benefit to client → follow with technical solution that delivers it",
+    "anti_pattern": {
+      "bad": "ECHEM has 25 years of experience in petrochemical manufacturing and has delivered over 200 projects",
+      "good": "Your facility will achieve 99.2% uptime reliability — backed by ECHEM's 200-project delivery track record spanning 25 years of continuous petrochemical operations"
+    }
+  },
+  "commitment_verbs": {
+    "strong": ["will", "shall", "guarantees", "commits to", "ensures", "delivers"],
+    "weak_avoid": ["understands", "can", "strives to", "hopes to", "may", "aims to", "is capable of"],
+    "rule": "Strong verbs demonstrate binding promise of action. Weak verbs imply lack of definitive commitment."
+  },
+  "active_voice": {
+    "rule": "Active voice propels narrative and clarifies accountability",
+    "bad": "The project will be managed by our team of certified professionals",
+    "good": "Our certified project managers will execute every milestone on schedule"
+  },
+  "seven_sources_of_proof": [
+    {
+      "source": "Research Studies",
+      "application": "Cite published data supporting methodology effectiveness",
+      "example": "According to PMI's 2024 Pulse of the Profession, organizations using standardized PM frameworks deliver 38% more projects on budget"
+    },
+    {
+      "source": "Past Performance Metrics",
+      "application": "Quantified results from previous contracts",
+      "example": "Achieved 99.7% safety record across 2.3M man-hours on the Alexandria Refinery Expansion"
+    },
+    {
+      "source": "Case Studies",
+      "application": "Detailed narratives of similar-scope project success",
+      "example": "Full case study showing challenge → approach → measurable outcome"
+    },
+    {
+      "source": "Expert Endorsements",
+      "application": "Third-party validation from recognized authorities",
+      "example": "Recommended by [Industry Authority] as a best-practice implementation partner"
+    },
+    {
+      "source": "Client Testimonials",
+      "application": "Direct quotes from satisfied customers",
+      "example": "Named quotes with attribution, title, and organization"
+    },
+    {
+      "source": "Documented Publicity",
+      "application": "Awards, media coverage, industry recognition",
+      "example": "Awarded 'Best EPC Contractor MENA 2024' by Engineering News-Record"
+    },
+    {
+      "source": "Logical Argument",
+      "application": "Rigorous cause-and-effect reasoning when empirical data unavailable",
+      "example": "If-then chains grounded in established engineering principles"
+    }
+  ],
+  "fluff_blacklist": [
+    "world-class", "cutting-edge", "best-in-class", "state-of-the-art",
+    "industry-leading", "innovative", "synergy", "paradigm shift",
+    "holistic approach", "next-generation", "game-changing", "revolutionary",
+    "turnkey", "seamless", "robust", "comprehensive"
+  ],
+  "fluff_rule": "Every adjective on this list is MEANINGLESS unless immediately followed by one of the 7 sources of proof. If no proof exists, DELETE the word.",
+  "graphics_rules": {
+    "principle": "Evaluators remember significantly more of what they see in a graphic than what they read",
+    "action_captions": "Every graphic MUST have an action caption that explicitly tells the reader what conclusion to draw",
+    "frequency": "At least one strategic graphic per major section",
+    "anti_pattern": "Never insert a graphic without a caption that drives the evaluator's interpretation"
+  },
+  "executive_summary_timing": "Write early in capture phase — present at initial kickoff meeting as internal compass for all subsequent writers"
+}

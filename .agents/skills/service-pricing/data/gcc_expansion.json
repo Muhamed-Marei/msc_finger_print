@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "purpose": "Tax frictions for billing Gulf (GCC) clients, if the agency expands beyond Egypt. Same net-cash logic as egypt_tax_2026.json — apply before believing a gross quote.",
+    "source": "Verified research report, June 2026. Confirm with a local advisor before contracting.",
+    "strategic_note": "Many Egyptian agencies set up a UAE free-zone entity for regional billing specifically because the UAE withholds 0% on outbound service payments — it removes the cross-border WHT trap entirely."
+  },
+  "saudi_arabia": {
+    "vat": "15% standard",
+    "withholding_on_nonresident_services": {
+      "technical_consulting": "5%",
+      "non_technical_operational_or_royalties": "15%",
+      "management_fees": "20%"
+    },
+    "authority": "ZATCA",
+    "implication": "Classify the service carefully — 'technical/consulting' (5%) vs 'management' (20%) is a 15-point cash swing. Price the WHT in or gross-up."
+  },
+  "uae": {
+    "vat": "5% standard",
+    "corporate_tax": "9% (since 2023)",
+    "withholding_on_nonresident_services": "0% on all cross-border outbound payments (dividends, interest, royalties, service fees remitted in full)",
+    "implication": "Frictionless for outbound payments — the preferred GCC billing hub for regional work."
+  },
+  "comparison": [
+    { "jurisdiction": "Egypt", "vat": "14% (0% exported)", "crossborder_wht_on_services": "20% blanket (DTT relief refund-only)" },
+    { "jurisdiction": "Saudi Arabia", "vat": "15%", "crossborder_wht_on_services": "5% technical / 15% non-tech / 20% management" },
+    { "jurisdiction": "UAE", "vat": "5%", "crossborder_wht_on_services": "0%" }
+  ]
+}

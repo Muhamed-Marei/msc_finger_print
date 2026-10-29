@@ -1,0 +1,190 @@
+{
+  "version": "2026.1",
+  "authority_colors": {
+    "wgsn_coloro_2026": {
+      "name": "Transformative Teal",
+      "hex": "#2F6364",
+      "description": "Color of the Year 2026 - Climate resilience and restorative mindset",
+      "psychology": ["grounding", "resilience", "trust", "ecological"],
+      "sectors": ["fintech", "wellness", "eco-commerce", "sustainability"]
+    },
+    "pantone_2026": {
+      "name": "Cloud Dancer",
+      "hex": "#F0EEE9",
+      "pantone_code": "11-4201",
+      "description": "Soft off-white reset, clarity and calm",
+      "psychology": ["clarity", "calm", "reset", "reduced_eye_strain"],
+      "sectors": ["healthcare", "content_apps", "enterprise_saas"]
+    },
+    "valspar_2026": {
+      "name": "Warm Eucalyptus",
+      "hex": "#7B8473",
+      "description": "Muted sage with gray undertones, mindful living",
+      "psychology": ["mindful", "natural", "anxiety_reducing"],
+      "sectors": ["healthcare", "wellness", "meditation_apps"]
+    }
+  },
+  
+  "palette_systems": {
+    "eco_digital": {
+      "description": "Sustainability, Fintech, Wellness",
+      "colors": {
+        "primary": {"hex": "#2F6364", "token": "brand-transformative-teal", "usage": "Primary brand, trust signals"},
+        "moss": {"hex": "#3E5C47", "token": "accent-moss", "usage": "Natural accents, eco indicators"},
+        "clay": {"hex": "#C36A4A", "token": "accent-clay", "usage": "Warm secondary, earth tones"},
+        "sand": {"hex": "#E7D8C6", "token": "surface-sand", "usage": "Neutral backgrounds"}
+      },
+      "effect": ["grounding", "resilience", "trust", "organic"]
+    },
+    
+    "cloud_reset": {
+      "description": "Content-Heavy Apps, Healthcare, Enterprise SaaS",
+      "colors": {
+        "cloud_dancer": {"hex": "#F0EEE9", "token": "surface-cloud-dancer", "usage": "Primary background"},
+        "warm_paper": {"hex": "#F7F3EE", "token": "surface-warm-paper", "usage": "Elevated surfaces"},
+        "slate_ui": {"hex": "#2B2F36", "token": "text-slate", "usage": "Body text (not pure black)"},
+        "mist_blue": {"hex": "#BFD3E7", "token": "accent-mist", "usage": "Subtle accents"}
+      },
+      "effect": ["clarity", "calm", "reduced_eye_strain", "cleanliness"]
+    },
+    
+    "neon_minimal": {
+      "description": "AI Tools, Gen Z Fintech, Gaming, Creative Portfolios",
+      "colors": {
+        "black_glass": {"hex": "#070A0F", "token": "surface-black-glass", "usage": "Dark backgrounds"},
+        "neon_lime": {"hex": "#B6FF3B", "token": "accent-neon-lime", "usage": "High-energy CTAs"},
+        "laser_pink": {"hex": "#FF3BD4", "token": "accent-laser-pink", "usage": "Urgent actions"},
+        "signal_blue": {"hex": "#3B7BFF", "token": "accent-signal-blue", "usage": "Info states"}
+      },
+      "effect": ["energy", "innovation", "magic", "controlled_chaos"]
+    },
+    
+    "deep_trust": {
+      "description": "Digital Banking, Insurance, Government, Legal Tech",
+      "colors": {
+        "blue_600": {"hex": "#0052CC", "token": "brand-digital-blue", "usage": "Primary brand"},
+        "blue_900": {"hex": "#001433", "token": "surface-deep-navy", "usage": "Dark mode backgrounds"},
+        "blue_50": {"hex": "#E5F0FF", "token": "surface-ice-blue", "usage": "Subtle highlights"},
+        "blue_200": {"hex": "#99C2FF", "token": "accent-sky", "usage": "Interactive elements"}
+      },
+      "effect": ["stability", "security", "professionalism", "authority"]
+    },
+    
+    "sunset_glow": {
+      "description": "Creative Portfolios, Ecommerce, Media, Entertainment",
+      "colors": {
+        "ember": {"hex": "#FF6A3D", "token": "action-sunset-ember", "usage": "Primary CTAs"},
+        "night_plum": {"hex": "#2B1538", "token": "surface-night-plum", "usage": "Luxury dark mode"},
+        "dusk_violet": {"hex": "#5A4B8A", "token": "accent-dusk", "usage": "Secondary accents"},
+        "haze_blue": {"hex": "#88A3D6", "token": "accent-haze", "usage": "Calming accents"}
+      },
+      "effect": ["warmth", "creativity", "cinematic", "emotional"]
+    },
+    
+    "modern_red": {
+      "description": "Lifestyle, Interior Design, Premium Retail",
+      "colors": {
+        "warm_mahogany": {"hex": "#7A2E2A", "token": "semantic-warm-mahogany", "usage": "Serious alerts"},
+        "dusty_rose": {"hex": "#D7A3A1", "token": "accent-dusty-rose", "usage": "Empathetic notifications"},
+        "cream": {"hex": "#F5EFE7", "token": "surface-cream", "usage": "Neutral backgrounds"},
+        "espresso": {"hex": "#221A18", "token": "text-espresso", "usage": "Primary text"}
+      },
+      "effect": ["grounded_passion", "timelessness", "warmth"]
+    },
+    
+    "dopamine": {
+      "description": "Candy, Snacks, Gen Z Apps, High Energy",
+      "colors": {
+        "wasabi": {"hex": "#C8D436", "token": "accent-wasabi", "usage": "Sour/acidic energy"},
+        "persimmon": {"hex": "#E25822", "token": "accent-persimmon", "usage": "Appetite stimulation"},
+        "sunny_yellow": {"hex": "#FFDD44", "token": "accent-sunny", "usage": "Joy, optimism"},
+        "jelly_mint": {"hex": "#A3F0AF", "token": "accent-jelly-mint", "usage": "Refreshment cues"},
+        "electric_fuchsia": {"hex": "#C4547D", "token": "accent-fuchsia", "usage": "Urgency"}
+      },
+      "effect": ["shock", "energy", "joy", "playfulness"]
+    },
+    
+    "luxury_serenity": {
+      "description": "Premium Chocolate, Wellness, Luxury Retail",
+      "colors": {
+        "cloud_dancer": {"hex": "#F0F2F5", "token": "surface-cloud", "usage": "Gallery aesthetic"},
+        "plum_noir": {"hex": "#3B1E28", "token": "surface-plum-noir", "usage": "Decadent dark mode"},
+        "jade": {"hex": "#00A86B", "token": "accent-jade", "usage": "Botanical sophistication"},
+        "terracotta": {"hex": "#E2725B", "token": "accent-terracotta", "usage": "Heritage warmth"},
+        "rose_gold": {"hex": "#D4AF37", "token": "accent-rose-gold", "usage": "Premium highlights"}
+      },
+      "effect": ["clarity", "purity", "decadence", "mystery"]
+    },
+    
+    "ai_saas": {
+      "description": "AI Tools, SaaS, Deep Tech",
+      "colors": {
+        "void": {"hex": "#07070A", "token": "surface-void", "usage": "Infinite depth background"},
+        "holo_lilac": {"hex": "#B9A7FF", "token": "brand-holo-lilac", "usage": "AI intelligence signal"},
+        "plasma_teal": {"hex": "#00F5D4", "token": "accent-plasma-teal", "usage": "Active states"}
+      },
+      "effect": ["sentience", "intelligence", "futuristic", "depth"]
+    }
+  },
+  
+  "sector_specific": {
+    "fintech": {
+      "primary_brand": ["#002966", "#2F6364"],
+      "accent": "#FFD66B",
+      "bg_light": "#F0EEE9",
+      "bg_dark": "#0B0D10",
+      "success": "#C7DDCC",
+      "alert": "#7A2E2A",
+      "requirements": ["tabular_fonts", "data_visualization", "glassmorphism"]
+    },
+    
+    "healthcare": {
+      "primary_brand": "#7B8473",
+      "secondary": "#95A7B4",
+      "bg": "#F7F3EE",
+      "accent": "#D7A3A1",
+      "text": "#2B2F36",
+      "requirements": ["60px_touch_targets", "pharma_serif", "soft_edges_20px"]
+    },
+    
+    "ecommerce": {
+      "cta": "#FF6A3D",
+      "brand": "#2F6364",
+      "dopamine": "#C8D436",
+      "warm": "#E25822",
+      "requirements": ["dynamic_backgrounds", "ar_integration", "micro_interactions"]
+    },
+    
+    "ai_saas": {
+      "bg": "#07070A",
+      "primary": "#B9A7FF",
+      "secondary": "#00F5D4",
+      "neon": "#B6FF3B",
+      "requirements": ["bento_grids", "dark_mode_native", "mesh_gradients"]
+    }
+  },
+  
+  "dark_mode_alternatives": {
+    "description": "2026 dark modes avoid pure black (#000000)",
+    "recommended": {
+      "true_charcoal": {"hex": "#0B0D10", "usage": "Professional apps, fintech"},
+      "deep_navy": {"hex": "#001433", "usage": "Banking, trust-focused"},
+      "night_plum": {"hex": "#2B1538", "usage": "Luxury, creative apps"},
+      "void": {"hex": "#07070A", "usage": "AI tools, deep tech"}
+    }
+  },
+  
+  "contrast_requirements": {
+    "standard": "WCAG 3.0 (APCA)",
+    "body_text_minimum": 60,
+    "large_text_minimum": 45,
+    "note": "Cloud Dancer (#F0EEE9) with Slate (#2B2F36) provides superior contrast to pure black-on-white"
+  },
+  
+  "mood_mode_seeds": {
+    "focus": "#7B8473",
+    "energy": "#B6FF3B",
+    "calm": "#2F6364",
+    "luxury": "#2B1538"
+  }
+}

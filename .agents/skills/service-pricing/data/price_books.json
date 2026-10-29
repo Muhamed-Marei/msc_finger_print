@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "purpose": "Two-market reference price bands for sanity-checking quotes. NOT auto-quotes — build bottom-up first (COST_MODE), then check against these bands.",
+    "markets": ["egypt_mena", "global"],
+    "fx_assumption": "~52.17 EGP/USD (8 June 2026, user-confirmed market rate). Refresh before quoting. See egypt_tax_2026.json.currency_risk.",
+    "source": "compass_artifact A1-A4. Bands are planning ranges, span 5-10x; drivers = complexity, seniority, location, platform, revisions."
+  },
+  "fixed_project": {
+    "mobile_app": {
+      "global_usd": { "simple_mvp": "10000-60000", "medium": "60000-120000", "complex": "120000-300000+", "note": "Cross-platform (Flutter/RN) cuts ~30-42% vs native. AI shift: 2020-23 scope of 75k-150k now ~30k-75k in 2024-26." },
+      "egypt_egp": { "simple": "150000-500000", "medium": "500000-1500000", "complex": "1500000-5000000+", "usd_equiv": "~3k-10k / 10k-29k / 29k-96k" }
+    },
+    "web": {
+      "global_usd": { "marketing_site": "2000-10000", "business_cms": "10000-30000", "custom_web_app": "30000-150000+" },
+      "egypt_egp": { "simple_site": "15000-60000", "business_site": "60000-200000", "custom_web_app": "200000-1000000+" }
+    },
+    "erp": {
+      "global_usd": { "smb_first_year_sw_plus_impl": "10000-150000", "mid_market": "150000-750000", "enterprise": "1000000+", "median_project_panorama_2025": "450000", "impl_services": "100-200% of annual software fees", "consultant_hr": "150-400", "per_integration": "3000-15000" },
+      "egypt_egp": { "module_customization": "100000-500000", "full_sme_implementation": "500000-3000000", "license_note": "Licenses are USD-priced globally regardless of market (e.g. Dynamics 365 BC: Essentials $80, Premium $110, Team $8 per user/mo, effective Nov 1 2025 — verify current)." }
+    },
+    "3d_video_animation": {
+      "global_usd": { "freelancer_per_min": "500-3000", "small_studio_per_min": "3000-7000", "pro_studio_per_min": "8000-25000", "per_second_social": "20-150", "1min_custom_explainer_vo_chars": "3000-15000" },
+      "egypt_egp": { "30sec_social_clip": "10000-50000", "1min_animated": "25000-150000", "usd_equiv_1min": "~500-2900", "tier_note": "Comparable to India tier ~$300-1000/min." }
+    },
+    "video_editing": {
+      "global_usd": { "youtube_edit": "200-800", "corporate_per_finished_min_high": "1500-5000", "wedding": "700-3500" },
+      "egypt_egp": { "short_social_edit": "500-3000", "longform_corporate": "3000-20000" }
+    },
+    "voice_over": {
+      "global_usd": { "human_per_finished_hour": "100-500", "per_project": "100-1000+", "ai_elevenlabs_per_min": "0.10-0.50", "ai_resell_per_script": "20-150" },
+      "egypt_egp": { "human_arabic_vo_project": "500-5000", "ai_note": "Tool cost negligible; price on value." }
+    }
+  },
+  "monthly_retainers": {
+    "social_media_management": {
+      "global_usd_mo": { "basic": "500-2500", "standard_smb_full": "2000-5000", "premium": "5000-10000", "enterprise": "10000-25000+" },
+      "egypt_egp_mo": { "basic": "8000-20000", "full_service": "20000-60000", "premium_enterprise": "60000+" }
+    },
+    "ads_management": {
+      "global": { "pct_of_spend": "10-20%", "flat_usd_mo": "500-2000", "min_ad_spend_usd_mo": "500-2000", "rule": "Quote management SEPARATELY from ad budget; paid-social often 15-20% of spend." },
+      "egypt": { "pct_of_spend": "10-20%", "flat_egp_mo": "5000-20000" }
+    },
+    "app_web_maintenance": {
+      "rule": "15-20% of original build cost per YEAR (industry standard). A $50k app = $7.5k-10k/yr.",
+      "monthly_equiv": "~1.25-1.7% of build / month",
+      "note": "Same % logic on the lower Egypt build base."
+    },
+    "ongoing_video_packages": {
+      "global_usd_mo": { "subscription_editing_from": "1850", "youtube_retainer": "2500-5000" },
+      "egypt_egp_mo": "15000-60000"
+    }
+  },
+  "hourly_daily": {
+    "note": "For add-ons, change requests, out-of-scope. Day rate ~= hourly x 8, often 10-15% full-day discount.",
+    "roles": {
+      "software_dev_general": { "global_usd_hr": "30-150 (60-120 mid)", "egypt": "local ~$5-30/hr; freelance EGP 200-800/hr" },
+      "ai_ml_cloud_security": { "global_usd_hr": "80-200", "egypt_egp_hr": "400-1500" },
+      "web_dev": { "global_usd_hr": "15-75 (median 30)", "egypt_egp_hr": "200-600" },
+      "erp_consultant": { "global_usd_hr": "150-400", "egypt_egp_hr": "300-900" },
+      "3d_artist_animator": { "global_usd_hr": "25-100+", "egypt_egp_hr": "150-600" },
+      "video_editor": { "global_usd_hr": "15-40 entry / 45-75 mid / 80-150 expert; day ~600", "egypt_egp_hr": "100-500" },
+      "social_media_specialist": { "global_usd_hr": "25-150", "egypt_egp_hr": "100-500" },
+      "designer_graphic_ui": { "global_usd_hr": "25-100", "egypt_egp_hr": "150-600" }
+    }
+  }
+}

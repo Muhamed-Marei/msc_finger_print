@@ -1,0 +1,306 @@
+{
+  "version": "2026.1",
+  "font_categories": {
+    "quiet_sans": {
+      "description": "Reaction to geometric overuse, sophisticated yet minimal",
+      "characteristics": ["confident", "un-designed", "contemporary", "allows_content_to_breathe"],
+      "fonts": [
+        {
+          "name": "Söhne",
+          "foundry": "Klim Type Foundry",
+          "source": "paid",
+          "usage": "Brands wanting confidence without shouting",
+          "sectors": ["fintech", "saas", "enterprise"]
+        },
+        {
+          "name": "Inter",
+          "source": "google_fonts",
+          "usage": "Universal body text, highly legible",
+          "sectors": ["all"]
+        },
+        {
+          "name": "Halyard",
+          "description": "Superfamily balancing warmth and precision",
+          "usage": "Comprehensive design systems, mobile to billboard",
+          "sectors": ["fintech", "healthcare", "ecommerce"]
+        },
+        {
+          "name": "GT Walsheim",
+          "foundry": "Grilli Type",
+          "description": "Geometric with friendly character",
+          "usage": "Modern branding with warmth",
+          "sectors": ["lifestyle", "wellness"]
+        }
+      ]
+    },
+    
+    "pharma_serif": {
+      "description": "Humanist serifs for healthcare - empathetic, not clinical",
+      "characteristics": ["curved_brackets", "soft_terminals", "editorial", "empathetic"],
+      "fonts": [
+        {
+          "name": "P22 Mackinac",
+          "usage": "Healthcare headings, patient-facing content",
+          "tone": "care_and_authority"
+        },
+        {
+          "name": "Reco",
+          "usage": "Medical interfaces with human touch",
+          "tone": "empathy"
+        }
+      ],
+      "sectors": ["healthcare", "wellness", "mental_health"]
+    },
+    
+    "funky_curvy_serif": {
+      "description": "Heritage + modern, exaggerated curves, high contrast",
+      "characteristics": ["swashes", "curves", "fusion_flavors", "distinctive"],
+      "fonts": [
+        {
+          "name": "Ogg",
+          "type": "calligraphic_serif",
+          "usage": "Brand storytelling, luxury ecommerce",
+          "sectors": ["luxury", "food", "premium_retail"]
+        },
+        {
+          "name": "Roslindale",
+          "usage": "Product names, campaign headlines",
+          "sectors": ["ecommerce", "fashion"]
+        },
+        {
+          "name": "Editorial New",
+          "type": "elegant_serif",
+          "usage": "Lookbooks, seasonal collections",
+          "sectors": ["fashion", "luxury"]
+        },
+        {
+          "name": "GT Super",
+          "type": "sharp_serif",
+          "usage": "Editorial content, blog headers",
+          "sectors": ["media", "publishing"]
+        }
+      ]
+    },
+    
+    "code_inspired": {
+      "description": "Tabular, monospace, precise - alludes to technical roots",
+      "characteristics": ["aligned_decimals", "technical", "precise", "legible"],
+      "fonts": [
+        {
+          "name": "JetBrains Mono",
+          "source": "free",
+          "usage": "Financial data, AI tools, code snippets",
+          "features": ["tabular_lining", "high_readability"]
+        },
+        {
+          "name": "Roboto Mono",
+          "source": "google_fonts",
+          "usage": "Transaction lists, technical specs",
+          "features": ["tabular_figures"]
+        },
+        {
+          "name": "Neue Metana",
+          "foundry": "Dirtyline Studio",
+          "description": "Minimalist geometric with urban influences",
+          "usage": "AI interfaces, tech startups"
+        }
+      ],
+      "sectors": ["fintech", "ai_saas", "dev_tools"]
+    },
+    
+    "playful_display": {
+      "description": "Tactile maximalism - squishy, bubbly, deformable",
+      "characteristics": ["rounded", "inflated", "hand_drawn", "joyful"],
+      "fonts": [
+        {
+          "name": "Cheee",
+          "foundry": "Ohno Type Co.",
+          "description": "Massive curves that refuse to sit still",
+          "usage": "Hero headlines, candy brands",
+          "effect": "clay_bubblegum_rising_dough"
+        },
+        {
+          "name": "Gummy Yummy",
+          "type": "decorative",
+          "usage": "Logos, flavor names",
+          "effect": "gelatinous_sweet"
+        },
+        {
+          "name": "Bubble Candy",
+          "type": "3d_inflated",
+          "usage": "New badges, gamification",
+          "effect": "shiny_air_filled"
+        },
+        {
+          "name": "Roena",
+          "type": "rounded_sans",
+          "usage": "Mobile buttons, body headlines",
+          "effect": "bold_friendly_clean"
+        },
+        {
+          "name": "Mingler",
+          "type": "hand_drawn",
+          "usage": "Packaging, ingredient lists",
+          "effect": "optimistic_vintage_sign"
+        }
+      ],
+      "sectors": ["candy", "food", "gen_z_apps"]
+    },
+    
+    "variable_kinetic": {
+      "description": "Fonts that adapt in real-time to user interaction",
+      "features": ["weight_variation", "width_variation", "hover_response", "scroll_response"],
+      "implementation": {
+        "weight_range": "100-900",
+        "interaction_timing": "200-300ms",
+        "use_cases": [
+          "Headlines gain weight on hover",
+          "Character width expands on scroll",
+          "Emphasis through dynamic boldness"
+        ]
+      },
+      "recommended_variable_fonts": [
+        "Inter Variable",
+        "Roboto Flex",
+        "Recursive"
+      ]
+    }
+  },
+  
+  "sector_recommendations": {
+    "fintech": {
+      "numeric_data": ["JetBrains Mono", "Roboto Mono"],
+      "headings": ["Söhne", "Inter"],
+      "body": ["Inter", "Halyard"],
+      "requirements": {
+        "tabular_lining": true,
+        "exaggerated_sizing": true,
+        "hierarchy_note": "Account balance should be hero text, transaction ID microscopic"
+      }
+    },
+    
+    "healthcare": {
+      "body": ["Open Sans", "Halyard"],
+      "headings": ["P22 Mackinac", "Reco"],
+      "requirements": {
+        "high_x_height": true,
+        "open_apertures": true,
+        "dyslexia_friendly": true
+      }
+    },
+    
+    "ecommerce": {
+      "product_names": ["Roslindale", "Ogg"],
+      "prices": ["JetBrains Mono", "Roboto Mono"],
+      "style": "editorial",
+      "requirements": {
+        "massive_typography": true,
+        "note": "Product names should occupy 50% of viewport on mobile"
+      }
+    },
+    
+    "ai_saas": {
+      "code_interface": ["Neue Metana", "JetBrains Mono"],
+      "chat_interface": ["Inter", "Söhne"],
+      "requirements": {
+        "conversational_tone": true,
+        "code_allusion": true
+      }
+    },
+    
+    "candy_food": {
+      "headlines": ["Cheee", "Bubble Candy"],
+      "flavor_names": ["Gummy Yummy"],
+      "body": ["Roena", "Mingler"],
+      "requirements": {
+        "tactile_appearance": true,
+        "playful_energy": true
+      }
+    },
+    
+    "luxury": {
+      "brand": ["Ogg", "Editorial New"],
+      "body": ["Halyard", "GT Super"],
+      "support": ["Söhne"],
+      "requirements": {
+        "heritage_etch": true,
+        "quiet_luxury": true
+      }
+    }
+  },
+  
+  "typography_scale_2026": {
+    "description": "Material 3 compliant with 2026 adjustments",
+    "display": {
+      "large": {"size": 57, "weight": 400, "letter_spacing": -0.25, "line_height": 1.12},
+      "medium": {"size": 45, "weight": 400, "letter_spacing": 0, "line_height": 1.16},
+      "small": {"size": 36, "weight": 400, "letter_spacing": 0, "line_height": 1.22}
+    },
+    "headline": {
+      "large": {"size": 32, "weight": 400, "letter_spacing": 0, "line_height": 1.25},
+      "medium": {"size": 28, "weight": 400, "letter_spacing": 0, "line_height": 1.29},
+      "small": {"size": 24, "weight": 400, "letter_spacing": 0, "line_height": 1.33}
+    },
+    "title": {
+      "large": {"size": 22, "weight": 500, "letter_spacing": 0, "line_height": 1.27},
+      "medium": {"size": 16, "weight": 500, "letter_spacing": 0.15, "line_height": 1.50},
+      "small": {"size": 14, "weight": 500, "letter_spacing": 0.1, "line_height": 1.43}
+    },
+    "body": {
+      "large": {"size": 16, "weight": 400, "letter_spacing": 0.5, "line_height": 1.50},
+      "medium": {"size": 14, "weight": 400, "letter_spacing": 0.25, "line_height": 1.43},
+      "small": {"size": 12, "weight": 400, "letter_spacing": 0.4, "line_height": 1.33}
+    },
+    "label": {
+      "large": {"size": 14, "weight": 500, "letter_spacing": 0.1, "line_height": 1.43},
+      "medium": {"size": 12, "weight": 500, "letter_spacing": 0.5, "line_height": 1.33},
+      "small": {"size": 11, "weight": 500, "letter_spacing": 0.5, "line_height": 1.45}
+    }
+  },
+  
+  "trending_typefaces_2026": [
+    {
+      "name": "Neue Metana",
+      "category": "geometric_sans",
+      "trend_score": 95,
+      "sectors": ["ai", "tech", "lifestyle"]
+    },
+    {
+      "name": "GT Walsheim",
+      "category": "geometric_friendly_sans",
+      "trend_score": 92,
+      "sectors": ["branding", "wellness"]
+    },
+    {
+      "name": "Halyard",
+      "category": "superfamily",
+      "trend_score": 90,
+      "sectors": ["design_systems", "enterprise"]
+    },
+    {
+      "name": "Söhne",
+      "category": "quiet_sans",
+      "trend_score": 95,
+      "sectors": ["fintech", "saas", "premium"]
+    },
+    {
+      "name": "Poppis",
+      "category": "geometric_sans",
+      "trend_score": 85,
+      "sectors": ["modern_branding"]
+    },
+    {
+      "name": "Honick",
+      "category": "geometric_sans",
+      "trend_score": 85,
+      "sectors": ["contemporary_brands"]
+    }
+  ],
+  
+  "implementation_notes": {
+    "fluid_typography": "Use CSS clamp() functions for viewport adaptation",
+    "variable_fonts": "Implement FontVariation widget for kinetic effects",
+    "performance": "Subset fonts to reduce bundle size",
+    "google_fonts_integration": "Use google_fonts package for Flutter"
+  }
+}

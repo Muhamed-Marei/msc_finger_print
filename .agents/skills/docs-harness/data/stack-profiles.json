@@ -1,0 +1,111 @@
+{
+  "version": "1.0",
+  "usage": "Append the matching profile's `rules` into 01-architecture/rules.md and its `layers` into architecture.md. Wire every `fitness` entry into CI before the rule is considered enforced. A rule with no enforcer is a suggestion.",
+  "profiles": {
+    "flutter-riverpod": {
+      "label": "Flutter + Riverpod",
+      "layers": "UI widget -> Riverpod controller -> repository -> service/data source. A widget MUST NOT reach past the controller.",
+      "rules": [
+        "MUST use `const` constructors for immutable widgets.",
+        "MUST hold cross-widget state in a Riverpod provider. `setState` MUST NOT carry state beyond a single widget.",
+        "Widgets MUST NOT import data-source packages (firebase, dio, sqflite) directly; go through a repository.",
+        "State classes MUST be immutable. Mutable public fields MUST NOT be exposed.",
+        "File naming: pages end `_page.dart`, controllers `_controller.dart`, repositories `_repository.dart`."
+      ],
+      "fitness": [
+        "import_lint or a custom Dart import linter failing the build when lib/**/presentation imports a data-source package",
+        "flutter analyze --fatal-infos in CI"
+      ]
+    },
+    "nextjs-app-router": {
+      "label": "Next.js App Router",
+      "layers": "Server Component -> data client -> API. Client Components render only; they hold no secrets and no direct data access.",
+      "rules": [
+        "Secrets MUST NOT appear in Client Components or in NEXT_PUBLIC_ variables.",
+        "Data fetching MUST happen in Server Components or Server Actions.",
+        "A Client Component MUST NOT import a server-only module; mark those with `import 'server-only'`.",
+        "Arbitrary style values (h-[37px], inline hex) MUST NOT be authored; use design tokens from 02-brand/design-tokens.md.",
+        "Every page MUST declare its `dynamic` / revalidate behaviour explicitly."
+      ],
+      "fitness": [
+        "eslint-plugin-boundaries or dependency-cruiser rule: app/**/client-* MUST NOT reach server modules",
+        "grep gate in CI failing on NEXT_PUBLIC_ names matching /(SECRET|KEY|TOKEN|PASSWORD)/"
+      ]
+    },
+    "nestjs-graphql": {
+      "label": "NestJS + GraphQL",
+      "layers": "resolver -> service -> repository. Resolvers hold no business logic.",
+      "rules": [
+        "Resolvers MUST NOT contain business logic; they delegate to a service.",
+        "Every mutation MUST take an input DTO carrying class-validator decorators.",
+        "Entity fields MUST NOT be exposed without an explicit @Field().",
+        "Generated SDL MUST NOT be hand-edited; change the code-first definition and regenerate.",
+        "A module MUST NOT import another module's repository directly; cross-module access goes through the owning service."
+      ],
+      "fitness": [
+        "dependency-cruiser: src/**/resolvers MUST NOT import src/**/repositories",
+        "CI step regenerating SDL and failing on a non-empty git diff"
+      ]
+    },
+    "firebase": {
+      "label": "Firebase (Auth, Firestore, Functions, FCM)",
+      "layers": "Clients may read/write Firestore directly, gated by Security Rules. Privileged writes go through Functions.",
+      "rules": [
+        "Security rules MUST deny by default. `allow read, write: if true` MUST NOT be committed in any environment.",
+        "A security rule MUST NOT be weakened to make a test pass.",
+        "The Admin SDK service-account JSON MUST NOT enter the repository, a client bundle, or any NEXT_PUBLIC_/VITE_ variable.",
+        "Every rule change MUST ship with an emulator test asserting both the allowed and the denied case.",
+        "Collection-group and denormalisation decisions MUST be recorded as an ADR before implementation."
+      ],
+      "fitness": [
+        "@firebase/rules-unit-testing against the emulator in CI, with assertFails on the unauthenticated and wrong-owner cases",
+        "secret scanner (gitleaks/trufflehog) as a pre-commit hook and a CI job"
+      ]
+    },
+    "node-clean-architecture": {
+      "label": "Node/TypeScript Clean Architecture",
+      "layers": "domain <- usecases <- infra / interfaces. Imports point inward only.",
+      "rules": [
+        "domain/ MUST NOT import from any other layer.",
+        "usecases/ MUST NOT import concrete infrastructure; depend on interfaces.",
+        "Operational failures MUST return a typed Result<T, E>; raw exceptions MUST NOT cross a layer boundary.",
+        "`any` and unchecked type assertions MUST NOT be authored.",
+        "Monetary values MUST use integer minor units, never floating point."
+      ],
+      "fitness": [
+        "dependency-cruiser forbidden rules per layer, severity error",
+        "tsc --noEmit with strict: true"
+      ]
+    },
+    "laravel": {
+      "label": "Laravel / PHP",
+      "layers": "Controller -> Form Request -> Action/Service -> Repository/Eloquent.",
+      "rules": [
+        "Controllers MUST NOT contain business logic; delegate to an Action or Service class.",
+        "Request payloads MUST be validated in a Form Request, never inline in the controller.",
+        "Raw SQL string concatenation MUST NOT be authored; use the query builder with bindings.",
+        "Migrations MUST be reversible; a destructive migration requires an ADR.",
+        "N+1 queries MUST be prevented with explicit eager loading on list endpoints."
+      ],
+      "fitness": [
+        "PHPStan level 6+ or Psalm in CI",
+        "deptrac layer ruleset failing the build on a boundary violation"
+      ]
+    },
+    "generic": {
+      "label": "Stack-agnostic baseline",
+      "layers": "State the layers, their allowed import direction, and which store owns which entity. Vague layer names without import rules are not architecture.",
+      "rules": [
+        "Typecheck, tests, and the architecture check MUST pass before a task is marked [x].",
+        "A dependency MUST NOT be added without an ADR.",
+        "Secrets MUST NOT appear in any file under docs/ or in committed config.",
+        "A test MUST NOT be weakened or deleted to make a build pass.",
+        "Generated artefacts MUST NOT be hand-edited; change the source and regenerate."
+      ],
+      "fitness": [
+        "a layer/import linter appropriate to the language, wired to fail the build",
+        "a secret scanner on every commit"
+      ]
+    }
+  }
+}

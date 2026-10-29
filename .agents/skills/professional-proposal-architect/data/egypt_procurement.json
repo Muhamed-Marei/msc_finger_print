@@ -1,0 +1,130 @@
+{
+  "primary_jurisdiction": "Arab Republic of Egypt",
+  "governing_law": {
+    "name": "Law No. 182 of 2018 — Regulating Contracts Concluded by Public Entities",
+    "replaced": "Law No. 89 of 1998",
+    "objectives": [
+      "Modernize state contracting",
+      "Enforce transparency",
+      "Decentralize execution",
+      "Protect against monopolistic and corrupt practices",
+      "Increase efficiency of public expenditures"
+    ]
+  },
+  "two_envelope_system": {
+    "purpose": "Ensure qualitative evaluation is not initially biased by price",
+    "technical_envelope": {
+      "opened": "FIRST",
+      "contents": [
+        "Operational methodology and work plan",
+        "Proposed timelines and milestones",
+        "Resumes of key personnel",
+        "Proof of past performance",
+        "All required corporate and legal documentation"
+      ],
+      "rejection_rule": "If technical proposal fails minimum scoring threshold OR lacks mandatory administrative documents → bid rejected ENTIRELY, financial envelope never opened"
+    },
+    "financial_envelope": {
+      "opened": "SECOND — only for bidders who pass technical evaluation",
+      "contents": [
+        "Pricing schedules and unit rates",
+        "Cost breakdowns and BOQ",
+        "Commercial terms and conditions"
+      ]
+    }
+  },
+  "mandatory_documentation": {
+    "corporate": [
+      "Commercial Registry Certificate (authenticated, valid)",
+      "Valid Tax Card",
+      "Value Added Tax (VAT) Registration Certificate",
+      "Records of Social Insurance Compliance",
+      "Specific Activity Licenses (if applicable)"
+    ],
+    "foreign_entities": [
+      "Correct legal entity established (LLC or Foreign Company Branch)",
+      "Bilingual Powers of Attorney",
+      "Legalisation and apostille of parent company documents",
+      "Certified Arabic translations of all foreign documents"
+    ]
+  },
+  "bid_bonds": {
+    "temporary": {
+      "percentage": "1% to 2.5% of estimated contract value",
+      "timing": "Must accompany submission",
+      "consequence_of_violation": "Confiscated if anti-collusion rules breached"
+    },
+    "final_performance": {
+      "percentage": "5% to 15% of total contract value",
+      "timing": "Upon contract award",
+      "validity": "Remains valid until project completion or lapse of warranty period"
+    }
+  },
+  "anti_collusion": {
+    "enforcing_authority": "Egyptian Competition Authority (ECA)",
+    "prohibitions": [
+      "Single bidder submitting more than one bid for same tender",
+      "Bidding independently AND in partnership through shared ownership/management",
+      "Bid rigging — conspiring to fix prices, allocate market shares, or predetermine winner",
+      "Submitting identical technical terms across related entities"
+    ],
+    "penalties": [
+      "Immediate exclusion of violating bids",
+      "Confiscation of temporary bid bond",
+      "Contract termination",
+      "Referral to ECA for prosecution under Egyptian Competition Law"
+    ]
+  },
+  "domestic_preference": {
+    "governing_law": "Law No. 5 of 2015 — Preference for Egyptian Products in Government Contracts",
+    "price_preference": "15%",
+    "local_component_threshold": "Egyptian industrial component must exceed 40% of total product cost",
+    "calculation": "Deduct value of imported components from total cost",
+    "enforcement": "If foreign bidder has lowest price, contract STILL awarded to Egyptian contractor if their bid ≤ foreign bid + 15%",
+    "sectors": ["Infrastructure", "Defense", "IT procurement"],
+    "strategic_implication": "Foreign multinationals must form local JVs or source raw materials domestically to remain competitive",
+    "gcc_comparison": {
+      "qatar": "10% preference for national products, 5% for GCC-origin",
+      "note": "Factor geographic handicaps into Green Team pricing models"
+    }
+  },
+  "taxation": {
+    "vat": {
+      "law": "VAT Law No. 67 of 2016 and subsequent amendments",
+      "standard_rate": "14%",
+      "construction_change": "Shifted from 5% schedule tax to 14% standard VAT",
+      "input_deductibility": "Full deductibility of input VAT on goods, machinery, and subcontracted services for contractors",
+      "pricing_impact": "Reduces net costs but requires meticulous invoicing — drastically alters pricing strategy"
+    },
+    "e_invoicing": {
+      "authority": "Egyptian Tax Authority (ETA)",
+      "requirements": [
+        "Electronic documents with certified eSeals",
+        "Specific hardware and certified providers",
+        "Full harmonization and mandatory compliance by 2026–2027"
+      ],
+      "consequence": "Bidders failing to demonstrate ETA digital integration risk disqualification"
+    },
+    "sme_incentives": {
+      "laws": "Laws No. 5, 6, and 7 of 2025",
+      "eligibility": "Annual revenues ≤ EGP 20 million",
+      "benefits": [
+        "Full exemption from dividend taxes",
+        "Full exemption from capital gains tax on fixed asset sales",
+        "Full exemption from stamp duties",
+        "Simplified flat-rate tax system"
+      ],
+      "grace_periods": {
+        "scope": "Settlement of pre-2020 tax disputes",
+        "cap": "Late penalties capped at 100% of original tax due"
+      }
+    }
+  },
+  "bilingual_requirements": {
+    "arabic_mandatory": "Senior executives and public sector evaluation committees in Egypt",
+    "english_default": "International consortiums operating within MENA borders",
+    "critical_rule": "Direct machine translation is universally inadequate and detrimental to credibility",
+    "requirement": "Generate native Arabic content respecting formal regional business dialects",
+    "digital_presence": "Corporate websites must reflect bilingual standard — procurement directors conduct independent online audits"
+  }
+}

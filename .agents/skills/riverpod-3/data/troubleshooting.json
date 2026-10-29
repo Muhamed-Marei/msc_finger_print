@@ -1,0 +1,206 @@
+{
+  "common_errors": {
+    "provider_was_disposed": {
+      "error": "ProviderException: The provider was disposed before it could return a value",
+      "causes": [
+        "Provider is autoDispose and last listener was removed",
+        "Parent widget unmounted during async operation",
+        "Navigation occurred before Future completed"
+      ],
+      "solutions": [
+        {
+          "approach": "Use keepAlive for longer cache",
+          "code": "final link = ref.keepAlive(); Timer(Duration(minutes: 5), link.close);"
+        },
+        {
+          "approach": "Make provider global",
+          "code": "@Riverpod(keepAlive: true)"
+        },
+        {
+          "approach": "Check if mounted before state update",
+          "code": "if (!ref.mounted) return;"
+        }
+      ]
+    },
+
+    "memory_leak_video": {
+      "symptom": "App crashes with OOM (Out of Memory) after scrolling videos",
+      "cause": "VideoPlayerController not disposed when off-screen",
+      "solution": {
+        "pattern": "Scoped provider with ref.onDispose",
+        "code": "@riverpod Future<VideoPlayerController> videoController(Ref ref, String url) async {\n  final controller = VideoPlayerController.networkUrl(Uri.parse(url));\n  ref.onDispose(() => controller.dispose());\n  await controller.initialize();\n  return controller;\n}",
+        "explanation": "Provider auto-disposes when widget unmounts, triggering controller.dispose()"
+      }
+    },
+
+    "excessive_rebuilds": {
+      "symptom": "Widget rebuilds too frequently, poor performance",
+      "causes": [
+        "Watching entire object when only one field needed",
+        "Using ref.watch inside build without select",
+        "Multiple providers updating simultaneously"
+      ],
+      "solutions": [
+        {
+          "problem": "Watching full user object",
+          "bad_code": "final user = ref.watch(userProvider);",
+          "good_code": "final name = ref.watch(userProvider.select((u) => u.name));"
+        },
+        {
+          "problem": "Derived state triggers cascade",
+          "solution": "Combine providers or use select to isolate dependencies"
+        }
+      ]
+    },
+
+    "search_too_many_requests": {
+      "symptom": "Network request for every keystroke",
+      "solution": {
+        "pattern": "Debounce with ref.onDispose cancellation",
+        "code": "@riverpod Future<List<Result>> search(Ref ref, String query) async {\n  if (query.isEmpty) return [];\n  final client = http.Client();\n  ref.onDispose(() => client.close());\n  await Future.delayed(Duration(milliseconds: 500));\n  final response = await client.get(...);\n  return parseResults(response.body);\n}",
+        "mechanism": "New query creates new provider instance, old instance disposed → client.close() → request cancelled"
+      }
+    },
+
+    "firestore_read_costs": {
+      "symptom": "High Firebase billing from document reads",
+      "causes": [
+        "autoDispose stream recreated on every navigation",
+        "User navigating back and forth triggers new snapshots"
+      ],
+      "solutions": [
+        {
+          "approach": "TTL cache for 5 minutes",
+          "code": "@riverpod Stream<List<Message>> messages(Ref ref, String chatId) {\n  final link = ref.keepAlive();\n  Timer(Duration(minutes: 5), link.close);\n  return firestore.collection(...).snapshots().map(...);\n}"
+        },
+        {
+          "approach": "Global keepAlive for user profile",
+          "code": "@Riverpod(keepAlive: true) Stream<UserProfile> userProfile(Ref ref)"
+        }
+      ]
+    },
+
+    "async_loading_flicker": {
+      "symptom": "List disappears and shows loading spinner on refresh",
+      "cause": "Setting state to AsyncLoading without preserving previous data",
+      "solution": {
+        "bad_code": "state = const AsyncLoading();",
+        "good_code": "state = const AsyncLoading().copyWithPrevious(state);",
+        "explanation": "Preserves current data while fetching, UI shows data + loading indicator"
+      }
+    },
+
+    "onesignal_navigation_before_app_ready": {
+      "symptom": "Notification clicked before app initialized, navigation fails",
+      "solution": {
+        "pattern": "Eager initialization provider",
+        "code": "@Riverpod(keepAlive: true) Future<void> appStartup(Ref ref) async {\n  await Firebase.initializeApp();\n  OneSignal.initialize(appId);\n  OneSignal.Notifications.addClickListener((event) {\n    ref.read(notificationHandlerProvider.notifier).navigate(event.notification.additionalData['chat_id']);\n  });\n}",
+        "ui_integration": "ConsumerWidget wraps app, shows splash until appStartupProvider completes"
+      }
+    },
+
+    "family_parameters_not_updating": {
+      "symptom": "Provider family not re-creating when parameters change",
+      "causes": [
+        "Parameters not using == operator correctly",
+        "Passing mutable objects instead of immutable"
+      ],
+      "solutions": [
+        {
+          "approach": "Use immutable parameters",
+          "bad": "class Filter { bool isActive; }",
+          "good": "class Filter { final bool isActive; const Filter(this.isActive); }"
+        },
+        {
+          "approach": "Override == and hashCode",
+          "code": "@override bool operator ==(Object other) => identical(this, other) || other is Filter && isActive == other.isActive;\n@override int get hashCode => isActive.hashCode;"
+        }
+      ]
+    },
+
+    "ref_watch_in_async": {
+      "error": "Cannot call ref.watch inside an async gap",
+      "cause": "Using ref.watch after an await statement",
+      "solution": {
+        "bad_code": "Future<void> fetchData() async {\n  await Future.delayed(Duration(seconds: 1));\n  final user = ref.watch(userProvider); // ERROR\n}",
+        "good_code": "Future<void> fetchData() async {\n  final user = ref.watch(userProvider); // Read BEFORE async\n  await Future.delayed(Duration(seconds: 1));\n}",
+        "explanation": "ref.watch must be called synchronously in build() or top of methods"
+      }
+    },
+
+    "state_not_persisting": {
+      "symptom": "State resets when navigating back",
+      "cause": "Provider is autoDispose and was disposed during navigation",
+      "solutions": [
+        "Use keepAlive() with appropriate TTL",
+        "Move state to higher-level provider that survives navigation",
+        "Use @Riverpod(keepAlive: true) if state should persist app-wide"
+      ]
+    }
+  },
+
+  "performance_optimization": {
+    "reduce_rebuild_scope": {
+      "technique": "Use select() to watch specific fields",
+      "impact": "Reduces rebuilds by 70-90% in complex objects",
+      "example": "ref.watch(userProvider.select((u) => u.name))"
+    },
+
+    "batch_state_updates": {
+      "technique": "Update state once with combined result",
+      "bad": "state = newValue1; state = newValue2; state = newValue3;",
+      "good": "state = computeFinalValue();",
+      "impact": "3 rebuilds → 1 rebuild"
+    },
+
+    "lazy_initialization": {
+      "technique": "Don't load data until needed",
+      "pattern": "Use FutureProvider with autoDispose, only created when watched",
+      "impact": "Faster app startup, lower memory"
+    },
+
+    "stream_distinct": {
+      "technique": "Riverpod 3.0 automatically uses == to filter duplicates",
+      "impact": "High-frequency streams (Firestore metadata updates) don't trigger rebuilds",
+      "note": "Ensure your models implement == operator correctly"
+    }
+  },
+
+  "debugging_tips": {
+    "log_provider_lifecycle": {
+      "approach": "Add prints in ref.onDispose",
+      "code": "ref.onDispose(() => debugPrint('Provider disposed: $chatId'));"
+    },
+
+    "track_active_providers": {
+      "approach": "Use ProviderObserver",
+      "code": "class LoggerObserver extends ProviderObserver {\n  @override\n  void didUpdateProvider(ProviderBase provider, Object? previousValue, Object? newValue, ProviderContainer container) {\n    print('${provider.name}: $previousValue → $newValue');\n  }\n}",
+      "usage": "ProviderScope(observers: [LoggerObserver()], child: MyApp())"
+    },
+
+    "inspect_provider_state": {
+      "approach": "Read provider value in debug console",
+      "code": "final container = ProviderScope.containerOf(context);\nprint(container.read(userProvider));"
+    }
+  },
+
+  "migration_issues": {
+    "statenotifier_ref_access": {
+      "problem": "StateNotifier can't access ref in constructor",
+      "legacy_workaround": "Pass ref through constructor parameter",
+      "riverpod_3_solution": "Use Notifier, ref available as this.ref in build()"
+    },
+
+    "family_tuple_complexity": {
+      "problem": "Multiple parameters required complex tuple logic",
+      "legacy": "Provider.family<Type, Tuple2<String, int>>((ref, params) => ...)",
+      "riverpod_3": "@riverpod Type name(Ref ref, {required String id, int limit = 20})"
+    },
+
+    "changenotifier_mutable_state": {
+      "problem": "ChangeNotifier used mutable state with notifyListeners()",
+      "issues": "State transitions unclear, hard to debug, breaks time-travel debugging",
+      "migration": "Convert to AsyncNotifier with immutable state, use state = newValue pattern"
+    }
+  }
+}

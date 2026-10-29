@@ -1,0 +1,102 @@
+{
+  "version": "2026.01",
+  "errors": [
+    {
+      "pattern": "StateNotifierProvider is not defined",
+      "fix": "import 'package:flutter_riverpod/legacy.dart'; OR migrate to @riverpod",
+      "category": "riverpod"
+    },
+    {
+      "pattern": "Ref.*isn't defined|UserRef",
+      "fix": "Change UserRef to Ref - Riverpod 3.x change",
+      "category": "riverpod"
+    },
+    {
+      "pattern": "was used after being disposed",
+      "fix": "Check ref.mounted or mounted before setState/state update",
+      "category": "lifecycle"
+    },
+    {
+      "pattern": "Part directive.*not found",
+      "fix": "Add: part 'filename.g.dart'; part 'filename.freezed.dart'; then run build_runner",
+      "category": "codegen"
+    },
+    {
+      "pattern": "version solving failed",
+      "fix": "Run: flutter pub outdated, then update conflicting packages or add dependency_overrides",
+      "category": "dependency"
+    },
+    {
+      "pattern": "No Firebase App.*DEFAULT",
+      "fix": "Add: await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform); in main()",
+      "category": "firebase"
+    },
+    {
+      "pattern": "signing certificate.*not found",
+      "fix": "Xcode > Preferences > Accounts > Download Manual Profiles OR create at developer.apple.com",
+      "category": "ios"
+    },
+    {
+      "pattern": "Minimum.*deployment target",
+      "fix": "Update ios/Podfile: platform :ios, '14.0' AND Xcode project settings",
+      "category": "ios"
+    },
+    {
+      "pattern": "pod.*error|CocoaPods",
+      "fix": "cd ios && pod deintegrate && pod install && cd ..",
+      "category": "ios"
+    },
+    {
+      "pattern": "Cannot fit requested classes.*dex",
+      "fix": "In android/app/build.gradle: defaultConfig { multiDexEnabled true }",
+      "category": "android"
+    },
+    {
+      "pattern": "minSdk.*version",
+      "fix": "Update android/app/build.gradle: minSdk 21 (or required version)",
+      "category": "android"
+    },
+    {
+      "pattern": "Gradle.*failed|gradlew",
+      "fix": "cd android && ./gradlew clean && cd .. && flutter clean && flutter pub get",
+      "category": "android"
+    },
+    {
+      "pattern": "R8|ProGuard|minify",
+      "fix": "Add keep rules to android/app/proguard-rules.pro for affected classes",
+      "category": "android"
+    },
+    {
+      "pattern": "Null check operator.*null value",
+      "fix": "Value is null - add null check or use ?. operator or provide default",
+      "category": "null"
+    },
+    {
+      "pattern": "setState.*after dispose",
+      "fix": "Add: if (mounted) setState(() {}); or check mounted before async callback",
+      "category": "lifecycle"
+    },
+    {
+      "pattern": "Could not find a generator",
+      "fix": "Run: dart run build_runner build --delete-conflicting-outputs",
+      "category": "codegen"
+    },
+    {
+      "pattern": "PlatformException.*channel",
+      "fix": "Ensure plugin is properly installed - flutter clean && flutter pub get, rebuild",
+      "category": "platform"
+    },
+    {
+      "pattern": "redirect loop|GoRouter.*loop",
+      "fix": "Return null in redirect when no redirect needed, not current path",
+      "category": "navigation"
+    }
+  ],
+  "commands": {
+    "clean": "flutter clean && flutter pub get",
+    "generate": "dart run build_runner build -d",
+    "ios_fix": "cd ios && pod deintegrate && pod install && cd ..",
+    "android_fix": "cd android && ./gradlew clean && cd ..",
+    "full_reset": "flutter clean && rm -rf ios/Pods ios/Podfile.lock && flutter pub get && cd ios && pod install && cd .."
+  }
+}

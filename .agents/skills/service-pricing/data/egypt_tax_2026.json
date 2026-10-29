@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "purpose": "The tax/compliance layer that turns a gross quote into NET CASH RECEIVED. The compass price-book examples omit this — always apply it for Egypt-touching deals.",
+    "source": "Service Pricing Cost Calculation (Egypt case study) + verified research report, June 2026. Figures confirmed against Law 67/2016 (VAT), Law 91/2005 (income/WHT), Law 148/2019 (social insurance), Law 152/2020 + Law 6/2025 (MSME), Law 7/2024 (PIT brackets), Law 14/2025 (labour).",
+    "verify_status": "Confirmed June 2026. Tax law still changes — re-confirm with a local accountant before contracting. See references/source_analysis.md."
+  },
+  "vat": {
+    "standard_rate_digital_software_3d": "14% — software, digital media, 3D animation are STANDARD-rated; input VAT fully recoverable with valid e-invoices.",
+    "professional_consulting_schedule_tax": "10% schedule tax on PURE professional/consultancy/advisory services — input VAT recovery RESTRICTED. WARNING: on blended contracts (software + strategy consulting) itemize precisely or auditors may reclassify the whole deliverable under the restrictive 10% regime.",
+    "reduced_rate": "5% (some industrial machinery)",
+    "exported_services_rate": "0% — remote services to a NON-resident with no physical presence in the other jurisdiction (Executive Instructions 45/2025). Input VAT FULLY recoverable -> cash-flow subsidy for export work. NOTE: local branches of foreign entities = domestic, charge 14%.",
+    "e_invoicing": "Mandatory; registration threshold LOWERED from EGP 500,000 to EGP 250,000 gross annual revenue (Resolution 281/2025, deadline 31 Mar 2026). Paper invoices invalid for VAT recovery / cost deduction since July 2023.",
+    "reverse_charge": "Egyptian buyer self-accounts 14% VAT on foreign services and reclaims as input (cash-neutral) — BUT requires an active Tax Reg Number + annually-renewable Unique ID Number (UIN) that the foreign vendor validates via ETA API (since 1 Nov 2024). If the UIN lapses, the vendor bills a hard, non-recoverable 14% B2C VAT."
+  },
+  "withholding_tax_local": {
+    "trigger": "Payments by Egyptian corporates to local vendors > EGP 300.",
+    "rates": { "contracting_supply": "1.0%", "general_services": "3.0%", "professional_fees_consulting_commissions": "5.0%" },
+    "base": "PRE-VAT (net) invoice amount, not the gross.",
+    "filing": "Quarterly, Form 41 (within 1 month of quarter-end). Payer bears absolute liability; failure = penalties + total disallowance of the expense.",
+    "worked": "Invoice EGP 100,000 + 14% VAT = 114,000 gross. 5% WHT on 100,000 = 5,000. Net cash to provider = 114,000 - 5,000 = 109,000.",
+    "recovery": "Creditable against the provider's own income tax — a cash-flow hit, not a permanent loss."
+  },
+  "withholding_tax_crossborder": {
+    "rate": "20% blanket on service fees / royalties / licenses / cloud paid by an Egyptian firm to a NON-resident.",
+    "sourcing_rule": "CONFIRMED as a real blanket rate. Under Law 91/2005 'utilization' sourcing, any service CONSUMED in Egypt is Egyptian-source regardless of where performed or whether the provider has a Permanent Establishment. Services performed abroad are NOT exempt under domestic law.",
+    "correction_note": "An earlier skill caveat called this 'overstated' — that was WRONG for Egypt. The breadth comes from the consumption/utilization principle, not a PE test.",
+    "impact": "A $10,000 invoice nets $8,000 — immediate 20% cash hit if unpriced.",
+    "dtt": "Treaties can cut the effective rate to ~5-15% or exempt PE-less business profits, BUT Ministerial Decree 771/2009 forbids applying the treaty rate at source: payer withholds full 20% upfront (Form 11, monthly); the non-resident files a refund claim (residency cert legalized by Egyptian consulate + beneficial-ownership + no-PE proof).",
+    "mitigation_gross_up": "Global vendors refuse the refund hassle and enforce 'net of all taxes' clauses, forcing the Egyptian agency to gross up and absorb the 20%. When the agency is the FOREIGN provider billing an Egyptian client, insert your own gross-up clause so net remittance = invoice value."
+  },
+  "social_insurance_2026": {
+    "law": "Law 148 of 2019 — 15% annual cap escalation (2021-2027).",
+    "min_insurable_wage_egp_mo": 2700,
+    "max_insurable_wage_egp_mo": 16700,
+    "pension_employer": "18.75% of insurable wage (capped at 16,700)",
+    "pension_employee": "11% of insurable wage (capped at 16,700)",
+    "health_uhi_employer": "3.25% of GROSS wage — UNCAPPED (raises cost of senior talent)",
+    "health_uhi_employee": "1.0% of GROSS wage — UNCAPPED",
+    "training_fund_employer": "0.25% of the minimum insurable wage per employee (restructured by Labour Law 14/2025; no longer a profit levy)",
+    "other": "Martyrs Fund + minor fractional levies (negligible).",
+    "worked_senior": "Gross EGP 40,000/mo: pension capped -> employer 16,700x18.75% = 3,131.25, employee 16,700x11% = 1,837. Health uncapped on 40,000 -> employer 1,300, employee 400. Training ~0.25%x2,700 = 6.75. TOTAL employer burden ~EGP 4,438/mo (~11% of gross); employee deduction ~2,237/mo."
+  },
+  "personal_income_tax_2026": {
+    "law": "Law 91/2005, brackets per Law 7/2024.",
+    "personal_exemption_egp": 20000,
+    "note": "Brackets apply to net taxable income AFTER the EGP 20,000 exemption and allowable social-insurance deductions. High earners lose access to lower brackets.",
+    "brackets_annual_egp": [
+      { "band": "0 - 40,000", "rate": "0%" },
+      { "band": "40,001 - 55,000", "rate": "10%" },
+      { "band": "55,001 - 70,000", "rate": "15%" },
+      { "band": "70,001 - 200,000", "rate": "20%" },
+      { "band": "200,001 - 400,000", "rate": "22.5%" },
+      { "band": "400,001 - 1,200,000", "rate": "25%" },
+      { "band": "Above 1,200,000", "rate": "27.5%" }
+    ],
+    "employer_duty": "Withhold + remit monthly."
+  },
+  "corporate_income_tax": {
+    "standard": "22.5% on net profit",
+    "oil_gas": "40.55%",
+    "suez_canal_cbe": "40%",
+    "msme_simplified_turnover_tax": {
+      "law": "Law 152/2020 + Law 6/2025",
+      "eligibility": "Annual turnover up to EGP 20M; MUST be fully on e-invoicing AND e-receipt systems (lapse = retroactive 22.5% net-profit assessment).",
+      "rates_on_GROSS_turnover": { "1M_to_10M": "0.75-1.0%", "10M_to_20M": "1.5%" },
+      "why_it_matters": "HUGE for a high-margin software/3D agency with minimal deductible COGS: a 1.5% gross-turnover tax can beat 22.5% on net profit by a wide margin. Model both and elect the cheaper. Also exemptions on dividends, capital gains on fixed-asset sales, and stamp duty."
+    }
+  },
+  "currency_risk": {
+    "egp_usd_june_2026": "~52.17 (8 June 2026, USER-CONFIRMED on-the-ground rate)",
+    "trajectory_correction": "Authoritative rate is ~52.17 (user-confirmed 8 Jun 2026). The research report's 47.95 figure (flagged 'Likely') was too strong and is REJECTED; the skill's original ~51.8 assumption was close. After the Mar 2024 float the EGP stabilized but kept a mild slide, sitting ~52.17 by mid-2026 — IMF EFF/RSF inflows, FDI, and tourism slowed but did not reverse the depreciation.",
+    "inflation_2026": "IMF projection 11.8% avg; Central Bank of Egypt baseline 16.0% avg (energy/fiscal-consolidation driven).",
+    "arbitrage": "Costs/payroll inflate 11-16% in EGP but are absorbed by USD revenue converting at a stable, favourable rate. Still BILL GLOBAL CLIENTS IN USD.",
+    "contract_protections": [
+      "Currency Option Clause — pivot pricing to USD/EUR if FX deviates beyond a benchmark.",
+      "Indexation/Escalation — tie multi-year retainers to inflation indices (11-16%/yr).",
+      "Shortened review cycles — quarterly price reviews (mirrors Art. 47 Public Contracting Law).",
+      "Theory of Exceptional Circumstances (Civil Code) — a judge MAY adjust pricing after an unforeseeable general event; FX moves alone usually do NOT qualify as force majeure."
+    ]
+  },
+  "eor_note": "Hiring via Employer of Record: premium global EORs charge 10-15% of gross salary (penalizes senior hires); regional flat-rate EORs (~EUR 199/employee/mo) give cost predictability."
+}

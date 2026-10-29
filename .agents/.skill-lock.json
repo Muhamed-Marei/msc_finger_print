@@ -1,0 +1,68 @@
+{
+  "version": 3,
+  "skills": {
+    "agy-delegate": {
+      "source": "amElnagdy/delegate-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/amElnagdy/delegate-skills.git",
+      "skillPath": "skills/agy-delegate/SKILL.md",
+      "skillFolderHash": "421e5b2fae299c49ec5ca2da0fbc5657ff7e6a87",
+      "installedAt": "2026-07-18T21:47:52.375Z",
+      "updatedAt": "2026-09-18T18:07:16.851Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "76a98a285cb0434f3d39e1a873823556330e398b",
+      "installedAt": "2026-07-18T21:47:57.120Z",
+      "updatedAt": "2026-07-18T21:47:57.120Z"
+    },
+    "delegate-setup": {
+      "source": "amElnagdy/delegate-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/amElnagdy/delegate-skills.git",
+      "skillPath": "skills/delegate-setup/SKILL.md",
+      "skillFolderHash": "98da0ea579268304d2ff86506328dde331079b88",
+      "installedAt": "2026-08-09T20:55:57.336Z",
+      "updatedAt": "2026-08-09T20:55:57.336Z"
+    },
+    "codex-delegate": {
+      "source": "amElnagdy/delegate-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/amElnagdy/delegate-skills.git",
+      "skillPath": "skills/codex-delegate/SKILL.md",
+      "skillFolderHash": "be91000bd52390936d488ecb5f74c994596948fd",
+      "installedAt": "2026-08-09T20:56:17.662Z",
+      "updatedAt": "2026-09-18T18:07:16.855Z"
+    },
+    "claude-delegate": {
+      "source": "amElnagdy/delegate-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/amElnagdy/delegate-skills.git",
+      "skillPath": "skills/claude-delegate/SKILL.md",
+      "skillFolderHash": "67e8fc436003367a6db4c1e9870e0f1e35930864",
+      "installedAt": "2026-08-09T20:57:03.805Z",
+      "updatedAt": "2026-09-18T18:07:16.854Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "cline",
+    "codex",
+    "cursor",
+    "droid",
+    "gemini-cli",
+    "github-copilot",
+    "kilo",
+    "kimi-code-cli",
+    "opencode",
+    "warp",
+    "zed",
+    "claude-code"
+  ]
+}

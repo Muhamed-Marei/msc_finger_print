@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "purpose": "Inputs for Fully Burdened Labor Rate (FBLR). Salary benchmarks both markets + the canonical loading/utilization defaults to convert salary -> loaded cost/hr.",
+    "source": "compass_artifact B1-B2 (salary bands); Service Pricing Cost Calculation (FBLR method).",
+    "fx_assumption": "~52.17 EGP/USD (8 June 2026, user-confirmed). Egypt Glassdoor data is noisy/understated; bands reconciled vs ERI/Payscale/Paylab — treat as directional."
+  },
+  "fblr_formula": {
+    "loaded_cost_per_hour": "(monthly_salary x burden_multiplier) / (monthly_working_hours x utilization)",
+    "annual_form": "(salary + benefits + employer_taxes + tools + training + seat_overhead) / (FTE_hours x utilization)",
+    "canonical_defaults": {
+      "burden_multiplier": 1.3,
+      "burden_range": "1.25-1.4 (25-40% over base); up to 1.5-2.0 for heavy-benefit/specialist seats. Egypt: compute from real social insurance — see egypt_tax_2026.json.social_insurance.",
+      "monthly_working_hours": 173,
+      "fte_hours_year": 2080,
+      "utilization_agency_staff": 0.70,
+      "utilization_range_staff": "0.65-0.80 (>0.85 sustained = underpriced or understaffed)",
+      "utilization_solo_operator": 0.45,
+      "solo_billable_hours_year": 1000,
+      "solo_note": "Solo operators bill only 40-50% (they own sales+admin). Use ~1000 billable hrs/yr as the MVR base."
+    },
+    "external_price_floor": "2.0x-2.5x FBLR for standard execution roles (= 50-60% margin); higher for strategic/leverage work. Treat 2.0x as the minimum multiplier for premium/global work."
+  },
+  "minimum_viable_rate": {
+    "definition": "Absolute price floor; below it the firm subsidizes the client. NOT a target.",
+    "formula": "Total Annual Costs / realistic billable hours",
+    "worked": "$150,000 total annual cost / 1,000 billable hrs = $150/hr breakeven. Add 20-30% safety margin -> sustainable MVR.",
+    "components": ["direct delivery costs", "indirect overhead", "owner's required compensation", "baseline risk/profit margin"]
+  },
+  "salary_benchmarks": {
+    "columns": ["role", "egypt_egp_mo", "egypt_usd_mo", "us_usd_yr", "india_usd_yr"],
+    "note": "Egypt USD at ~52.17 EGP/USD. Fully-loaded cost = salary x ~1.25-1.4.",
+    "roles": [
+      { "role": "Mobile developer", "egypt_egp_mo": "15000-40000", "egypt_usd_mo": "290-770", "us_usd_yr": "~101700 (76k-137k)", "india_usd_yr": "5k-18k" },
+      { "role": "Web developer", "egypt_egp_mo": "8000-30000 (jr 8-15k, mid 15-30k, sr 30-50k+)", "egypt_usd_mo": "155-965", "us_usd_yr": "~100700 (77k-132k)", "india_usd_yr": "5k-18k" },
+      { "role": "Backend developer", "egypt_egp_mo": "25000-40000", "egypt_usd_mo": "480-770", "us_usd_yr": "~120000 (98k-142k)", "india_usd_yr": "9k-35k" },
+      { "role": "ERP consultant/dev", "egypt_egp_mo": "17000-35000", "egypt_usd_mo": "330-675", "us_usd_yr": "~105k-123k", "india_usd_yr": "-" },
+      { "role": "3D animator/motion designer", "egypt_egp_mo": "12000-27000 (sr ~24-30k)", "egypt_usd_mo": "230-580", "us_usd_yr": "~64k-113k", "india_usd_yr": "-" },
+      { "role": "Video editor", "egypt_egp_mo": "~6500 avg", "egypt_usd_mo": "~125", "us_usd_yr": "45k-133k", "india_usd_yr": "-" },
+      { "role": "Social media manager", "egypt_egp_mo": "6000-18000", "egypt_usd_mo": "115-350", "us_usd_yr": "~71800 (54k-96k)", "india_usd_yr": "-" },
+      { "role": "Social/PPC ads specialist", "egypt_egp_mo": "10000-20000", "egypt_usd_mo": "190-385", "us_usd_yr": "~70700 (55k-91k)", "india_usd_yr": "-" },
+      { "role": "Project manager (tech)", "egypt_egp_mo": "25000-50000", "egypt_usd_mo": "480-965", "us_usd_yr": "~112k-130k", "india_usd_yr": "-" },
+      { "role": "Graphic/UI designer", "egypt_egp_mo": "6000-22000", "egypt_usd_mo": "115-425", "us_usd_yr": "50k-90k", "india_usd_yr": "-" }
+    ]
+  },
+  "models": {
+    "team_salaried": "Salary x burden / billable hours. Scales with bench depth; carries fixed overhead and idle-time risk.",
+    "freelancer_solo": "Cost = own time at hourly rate + tools + slice of personal overhead. Freelancers charge 20-30% more/hr than salaried equivalents (no benefits/stability) but internal cost is near-zero fixed. Solo nets higher margin (~20%+, consistent with <10-FTE 19% avg) but lacks scalability."
+  }
+}

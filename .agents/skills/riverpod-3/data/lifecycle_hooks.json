@@ -1,0 +1,84 @@
+{
+  "lifecycle_methods": {
+    "ref.onDispose": {
+      "trigger": "Provider permanently destroyed",
+      "use_cases": [
+        "Close WebSocket connections (socket.disconnect())",
+        "Dispose VideoPlayerController",
+        "Cancel timers",
+        "Close StreamController",
+        "Release native resources"
+      ],
+      "example": "ref.onDispose(() => controller.dispose());"
+    },
+    "ref.onCancel": {
+      "trigger": "Last listener removed (not yet disposed)",
+      "use_cases": [
+        "Pause expensive Firestore stream",
+        "Log analytics event",
+        "Reduce background processing"
+      ],
+      "example": "ref.onCancel(() => print('No listeners'));",
+      "note": "Provider not destroyed yet, might resume"
+    },
+    "ref.onResume": {
+      "trigger": "Listener added after onCancel",
+      "use_cases": [
+        "Resume paused Firestore stream",
+        "Re-subscribe to socket channel",
+        "Restart polling"
+      ],
+      "example": "ref.onResume(() => stream.resume());"
+    },
+    "ref.keepAlive": {
+      "trigger": "Manual call",
+      "returns": "KeepAliveLink (closeable)",
+      "use_cases": [
+        "Prevent disposal during navigation",
+        "TTL cache (5-minute memory for images)",
+        "Keep global state alive"
+      ],
+      "example": "final link = ref.keepAlive(); Timer(Duration(minutes: 5), link.close);"
+    }
+  },
+
+  "autodispose_behavior": {
+    "default_in_codegen": true,
+    "trigger": "Last listener removed",
+    "delay": "Immediate (next microtask)",
+    "override": "@Riverpod(keepAlive: true)"
+  },
+
+  "ttl_cache_pattern": {
+    "description": "Time-To-Live memory management",
+    "implementation": {
+      "step1": "ref.keepAlive() on provider entry",
+      "step2": "Timer(() => link.close(), duration)",
+      "step3": "ref.onDispose(() => timer.cancel())"
+    },
+    "use_cases": [
+      "Chat images (60s after leaving screen)",
+      "User profiles (5min after navigation)",
+      "Firestore messages (avoid re-fetch flicker)"
+    ]
+  },
+
+  "common_patterns": {
+    "websocket_singleton": {
+      "annotation": "@Riverpod(keepAlive: true)",
+      "lifecycle": "Lives for app session",
+      "disposal": "ref.onDispose(() => socket.disconnect())"
+    },
+    "video_controller_scoped": {
+      "annotation": "@riverpod (default autoDispose)",
+      "lifecycle": "Created when widget mounted, disposed when unmounted",
+      "disposal": "ref.onDispose(() => controller.dispose())",
+      "benefit": "Automatic native memory cleanup"
+    },
+    "firestore_stream_cached": {
+      "annotation": "@riverpod with keepAlive",
+      "lifecycle": "keepAlive() for 5min after last listener",
+      "benefit": "Prevent document read costs on navigation"
+    }
+  }
+}

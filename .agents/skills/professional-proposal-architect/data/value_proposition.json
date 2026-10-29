@@ -1,0 +1,70 @@
+{
+  "value_proposition_canvas": {
+    "attribution": "Dr. Alexander Osterwalder",
+    "customer_profile": {
+      "customer_jobs": {
+        "definition": "Functional, social, and emotional tasks the procurement entity is performing",
+        "types": {
+          "functional": "Infrastructure modernization, system integration, service delivery improvement",
+          "social": "Demonstrating fiscal responsibility, stakeholder confidence, regulatory compliance",
+          "emotional": "Mitigating political risk, career protection, organizational reputation"
+        },
+        "proposal_application": "Identifies the fundamental objective — anchor ALL messaging to these jobs"
+      },
+      "customer_pains": {
+        "definition": "Negative emotions, undesired costs, and severe obstacles the customer experiences",
+        "ranking_rule": "Rank by intensity — address highest-impact vulnerabilities FIRST",
+        "proposal_application": "Maps directly to risk mitigation strategy in technical volume"
+      },
+      "customer_gains": {
+        "definition": "Tangible benefits the customer uses to measure success",
+        "examples": ["Cost savings", "Operational security", "Regulatory compliance", "Political capital"],
+        "proposal_application": "Informs ROI calculations and defines success metrics in executive summary"
+      }
+    },
+    "value_map": {
+      "pain_relievers": {
+        "definition": "Explicit explanations of how proposed methodology alleviates specific frustrations",
+        "rule": "Translate generic features into SPECIFIC remedies for RECOGNIZED bottlenecks",
+        "anti_pattern": "Never describe a feature without connecting it to a diagnosed pain"
+      },
+      "gain_creators": {
+        "definition": "Demonstrations of how offering produces outcomes the customer desires",
+        "rule": "Focus on aspects that EXCEED baseline RFP requirements",
+        "proposal_application": "Highlights added value — the discriminator in competitive evaluation"
+      }
+    },
+    "fit_test": "Product-market fit achieved when every Pain has a Reliever and every Gain has a Creator"
+  },
+  "jtbd_framework": {
+    "full_name": "Jobs to Be Done",
+    "integration_with_odi": "Outcome-Driven Innovation",
+    "purpose": "Ensures messaging connects specific technical features to measurable business outcomes",
+    "risk_mitigated": "Internal misalignment where sales, marketing, and proposal teams describe value differently",
+    "application": {
+      "step_1": "Identify the core job the customer is hiring the solution to do",
+      "step_2": "Map desired outcomes (metrics the customer uses to judge success)",
+      "step_3": "Align every proposal section to these outcomes, not to internal capabilities"
+    }
+  },
+  "customer_value_consistency_canvas": {
+    "foundation": "Service-Dominant Logic — value is co-created with the user",
+    "structure": {
+      "as_is": "Customer's current state — document operational reality, pain intensity, unmet needs",
+      "to_be": "Customer's desired achievement status — measurable outcomes, KPIs, strategic vision"
+    },
+    "proposal_role": "Bridge the gap between AS-IS and TO-BE — the proposal IS the bridge narrative"
+  },
+  "feature_advantage_benefit": {
+    "chain": {
+      "feature": "A technical capability or attribute of the solution",
+      "advantage": "Why the feature is superior to alternatives or the status quo",
+      "benefit": "The specific, measurable outcome the customer gains from this advantage"
+    },
+    "examples": {
+      "bad": "We have 15 years of experience in petrochemical EPC projects",
+      "good": "Our 15-year track record in petrochemical EPC (feature) has refined a proprietary risk model that identifies schedule threats 6 weeks earlier than industry standard (advantage), reducing your project delivery risk by 40% and protecting your timeline commitments (benefit)"
+    },
+    "rule": "Every claim in the proposal MUST complete the full F→A→B chain or be deleted"
+  }
+}

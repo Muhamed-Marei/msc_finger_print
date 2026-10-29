@@ -1,0 +1,39 @@
+{
+  "meta": {
+    "purpose": "Choose the billing structure. Each model changes client behavior, cash flow, and scalability.",
+    "source": "Service Pricing Cost Calculation (4 pricing models) + compass_artifact (retainer emphasis)."
+  },
+  "models": {
+    "hourly_time_and_materials": {
+      "definition": "Client billed linearly for exact time spent.",
+      "pros": ["Simplest to explain/calculate", "Paid for all effort", "Protects against scope creep"],
+      "cons": ["Punishes efficiency (faster = less revenue)", "Hard ceiling = finite hours", "Invites micromanagement of time logs"],
+      "use_for": "Add-ons, change requests, out-of-scope work."
+    },
+    "project_fixed_fee": {
+      "definition": "Flat predefined fee for delineated deliverables, regardless of hours.",
+      "pros": ["Focus on deliverables not time", "Rewards efficiency (templates/automation -> high effective hourly)", "Budget certainty -> faster sales cycle"],
+      "cons": ["Extreme risk if scope ill-defined", "Uncompensated scope creep crushes margin", "Needs precise estimating + historical data"],
+      "use_for": "Defined-scope builds (apps, sites, 3D videos). Pair with change-order process."
+    },
+    "retainer": {
+      "definition": "Recurring monthly/quarterly fee for ongoing access or baseline deliverables.",
+      "pros": ["Predictable recurring revenue", "Accurate capacity planning/hiring", "Deep long-term partnerships"],
+      "cons": ["Requires constant value demonstration to prevent churn", "Scope can creep beyond negotiated baseline"],
+      "use_for": "Maintenance, social management, ads, ongoing video. TARGET 70-80% of revenue recurring."
+    },
+    "value_based": {
+      "definition": "Fee anchored to quantifiable client business impact, not labor cost. Most sophisticated/lucrative.",
+      "pros": ["Decouples revenue from time (no ceiling)", "Perfect alignment with client success"],
+      "cons": ["Hard to execute", "Needs executive access + proven ROI history", "Fails if impact can't be isolated/measured"],
+      "calibration": "Typically 10-20% of created value. e.g. $5,000 fee for a system that saves the client $50,000/yr.",
+      "use_for": "Strategic engagements with measurable ROI."
+    }
+  },
+  "tactical_rules": {
+    "no_line_item_pricing": "Don't itemize every task (invites a-la-carte negotiation). Bundle into outcome-oriented tiers ('Full Transformation Sprint: $X').",
+    "options_not_discounts": "Offer 3 tiers (Basic/Standard/Premium) to anchor. If client pushes on price, REDUCE SCOPE to match budget — never discount the fee (it permanently resets perceived value).",
+    "phased_rollout": "Never change pricing across the whole base at once. Segment cohorts, A/B test on new clients, measure conversion + churn.",
+    "separate_ad_spend": "Quote ads management SEPARATELY from the ad budget in every social proposal."
+  }
+}

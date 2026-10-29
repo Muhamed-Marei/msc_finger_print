@@ -1,0 +1,61 @@
+{
+  "definition": "A proposal tactic wherein a bidder highlights a competitor's inherent weaknesses or downplays their strengths without explicitly naming them (APMP/Shipley)",
+  "golden_rule": "Deploy ONLY after firmly establishing the inherent superiority of your own solution",
+  "red_lines": [
+    "NEVER name competitors directly",
+    "NEVER make false or unsubstantiated claims",
+    "NEVER cross into arrogance or condescension",
+    "NEVER deploy without empirical evidence backing the ghost",
+    "An overt attack damages the bidder MORE than it harms the competitor"
+  ],
+  "deployment_by_volume": {
+    "experience_past_performance": {
+      "tactic": "Define highly specific success criteria that only you possess",
+      "mechanism": "Narrative points out cascading failures when contractor lacks THIS SPECIFIC experience",
+      "effect": "Renders generic industry experience seemingly inadequate",
+      "example": "Our team has completed 12 FEED studies for [exact plant type] in the MENA region, each delivered within 2% of budget — a track record that eliminates the learning-curve risk inherent in first-time regional execution"
+    },
+    "staffing_resourcing": {
+      "tactic": "Highlight risks of rebadging incumbent staff or using unvetted subcontractors",
+      "mechanism": "Promote deep bench of proprietary, pre-vetted talent",
+      "effect": "Casts doubt on competitors relying on external labor pools",
+      "size_strategies": {
+        "small_vs_large": "Ghost by stressing agility, single point of contact, personal service",
+        "large_vs_small": "Ghost by emphasizing depth of technical resources and financial stability"
+      }
+    },
+    "technical_approach": {
+      "tactic": "Identify hidden pitfalls in standard industry methodologies",
+      "mechanism": "Demonstrate how your proprietary approach actively mitigates unaddressed risks",
+      "effect": "Makes competitors' standard approaches appear risky by comparison"
+    },
+    "pricing": {
+      "tactic": "Educate buyer on hidden costs",
+      "mechanism": "Explicitly list everything included in comprehensive price",
+      "effect": "Forces evaluator to question whether competitor's low bid omits critical elements → future change orders and budget overruns"
+    }
+  },
+  "lexicon_of_doubt": [
+    {
+      "rhetorical_goal": "Highlighting methodological flaws",
+      "phrasing": "Based on industry data, that approach has potential weaknesses because...",
+      "implication": "Forces evaluator to question viability of competitor's standard methodology via objective data"
+    },
+    {
+      "rhetorical_goal": "Addressing staffing instability",
+      "phrasing": "Rebadging is a high-risk solution in today's competitive job market because...",
+      "implication": "Subtly attacks competitors planning to poach incumbent staff"
+    },
+    {
+      "rhetorical_goal": "Questioning competitor reliability",
+      "phrasing": "Our architecture includes guaranteed uptime, so you never have to worry about losing access",
+      "implication": "Indirectly reminds evaluator of competitor's known system outage history"
+    },
+    {
+      "rhetorical_goal": "Exposing hidden costs",
+      "phrasing": "What is missing in standard approaches is the following...",
+      "implication": "Educates buyer that lower competitor price likely omits necessary compliance steps"
+    }
+  ],
+  "integration_principle": "Ghosting subtly educates the evaluation committee, dropping hints that prompt more rigorous scrutiny of alternative bids"
+}

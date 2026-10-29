@@ -1,0 +1,123 @@
+{
+  "methodology": "Shipley Associates Business Development Lifecycle",
+  "total_activities": 96,
+  "objective": "Systematically maximize Probability of Win (P-Win)",
+  "phases": {
+    "phase_0": {
+      "designation": "Market Segmentation",
+      "strategic_focus": "Pre-capture market identification",
+      "key_activities": [
+        "Agency research and target market analysis",
+        "Long-term opportunity forecasting",
+        "Sector fertility scoring"
+      ],
+      "outcome": "Proactive targeting vs. reactive tendering"
+    },
+    "phase_1": {
+      "designation": "Long-Term Positioning",
+      "strategic_focus": "Early customer engagement (12–24 months pre-solicitation)",
+      "key_activities": [
+        "Relationship building with key stakeholders",
+        "Account positioning and trust establishment",
+        "Aligning solutions with emerging customer needs",
+        "Shaping buyer's eventual requirements"
+      ],
+      "outcome": "Trust equity and requirements influence"
+    },
+    "phase_2": {
+      "designation": "Opportunity Assessment",
+      "strategic_focus": "Qualification and triage",
+      "key_activities": [
+        "Rigorous Go/No-Go analysis",
+        "Customer profiling and stakeholder mapping",
+        "Competitive assessment and landscape analysis",
+        "Multi-dimensional scoring via decision engines"
+      ],
+      "outcome": "Resource allocation optimization — pursue only winnable bids"
+    },
+    "phase_3": {
+      "designation": "Capture Planning",
+      "strategic_focus": "Shaping the deal",
+      "key_activities": [
+        "Developing core win themes (3–5 max)",
+        "Identifying teaming partners",
+        "Capability gap analysis",
+        "Intelligence gathering for competitive ghosting",
+        "Solution architecture alignment"
+      ],
+      "outcome": "Strategic advantage crystallized before RFP release"
+    },
+    "phase_4": {
+      "designation": "Proposal Planning",
+      "strategic_focus": "Preparation for response",
+      "key_activities": [
+        "Kickoff meeting with all stakeholders",
+        "Compliance matrix development (RFP shredding)",
+        "Outlining and storyboarding all volumes",
+        "RACI matrix assignment",
+        "Color Team review schedule creation"
+      ],
+      "outcome": "Complete proposal blueprint before first word is drafted"
+    },
+    "phase_5": {
+      "designation": "Proposal Development",
+      "strategic_focus": "Drafting and refinement",
+      "key_activities": [
+        "Narrative generation per volume",
+        "Iterative Color Team reviews (Pink → Red → Green → Gold)",
+        "Graphics development with action captions",
+        "Compliance verification against matrix",
+        "Executive Summary finalization (Four-Box)"
+      ],
+      "outcome": "Compliant, persuasive, customer-centric submission"
+    },
+    "phase_6": {
+      "designation": "Post-Submittal",
+      "strategic_focus": "Follow-up and forensics",
+      "key_activities": [
+        "White Team lessons learned review",
+        "Oral presentation preparation (if required)",
+        "Final negotiations and BAFO responses",
+        "Archiving reusable intelligence and boilerplate",
+        "Win/loss analysis and P-Win recalibration"
+      ],
+      "outcome": "Institutional knowledge capture for future bids"
+    }
+  },
+  "p_win_scoring_dimensions": [
+    {
+      "dimension": "Customer Relationship",
+      "weight": "HIGH",
+      "indicators": ["Direct contact frequency", "Trust level", "Requirements influence"]
+    },
+    {
+      "dimension": "Solution Fit",
+      "weight": "HIGH",
+      "indicators": ["Technical alignment", "Capability coverage", "Innovation differentiation"]
+    },
+    {
+      "dimension": "Competitive Position",
+      "weight": "MEDIUM",
+      "indicators": ["Known competitors", "Ghosting opportunities", "Incumbent advantage/disadvantage"]
+    },
+    {
+      "dimension": "Price Competitiveness",
+      "weight": "MEDIUM",
+      "indicators": ["Budget alignment", "Value-to-cost ratio", "Hidden cost exposure"]
+    },
+    {
+      "dimension": "Teaming Strength",
+      "weight": "MEDIUM",
+      "indicators": ["Partner capabilities", "Joint past performance", "Subcontractor reliability"]
+    },
+    {
+      "dimension": "Compliance Risk",
+      "weight": "HIGH",
+      "indicators": ["Administrative documentation readiness", "Certification gaps", "Legal entity status"]
+    }
+  ],
+  "alternative_frameworks": {
+    "summit_win_system": "Aligns overarching brand positioning and marketing with capture strategy — proposal as natural output of unified growth system",
+    "when_to_use": "Dynamic B2B markets or scaling enterprises where Shipley's siloed department assumption doesn't hold"
+  }
+}

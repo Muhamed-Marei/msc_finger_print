@@ -1,0 +1,32 @@
+{
+  "moods": {
+    "focus": {
+      "seed_color": "#7B8473",
+      "name": "Warm Eucalyptus",
+      "usage": "Work, Study, Deep Reading",
+      "auto_switch": "Morning (6 AM - 12 PM)",
+      "token": "brand-warm-eucalyptus"
+    },
+    "energy": {
+      "seed_color": "#B6FF3B",
+      "name": "Neon Lime",
+      "usage": "Exercise, Gaming, High Activity",
+      "auto_switch": "Afternoon (12 PM - 5 PM)",
+      "token": "accent-neon-lime"
+    },
+    "calm": {
+      "seed_color": "#2F6364",
+      "name": "Transformative Teal",
+      "usage": "Meditation, Relaxation",
+      "auto_switch": "Evening (5 PM - 9 PM)",
+      "token": "brand-transformative-teal"
+    },
+    "luxury": {
+      "seed_color": "#2B1538",
+      "name": "Plum Noir",
+      "usage": "Shopping, Premium Content",
+      "auto_switch": "Night (9 PM+)",
+      "token": "brand-luxury"
+    }
+  }
+}

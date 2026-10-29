@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "purpose": "Software/tool subscriptions + office/hardware/overhead benchmarks. Feed these into pass-throughs and the overhead-per-hour allocation.",
+    "source": "compass_artifact B3-B4."
+  },
+  "software_monthly_usd": [
+    { "tool": "Adobe Creative Cloud (All Apps)", "cost": "69.99/mo (Std 54.99; single app ~22.99; ~660/yr)", "use": "Design, video, motion" },
+    { "tool": "Figma", "cost": "0-75/editor (Pro ~15)", "use": "UI/UX" },
+    { "tool": "Canva Pro", "cost": "10-15/user", "use": "Social graphics" },
+    { "tool": "Blender", "cost": "Free (open source)", "use": "3D modeling/animation" },
+    { "tool": "Maya / 3ds Max", "cost": "~235/mo or ~1875/yr", "use": "Pro 3D" },
+    { "tool": "Cinema 4D", "cost": "~60-95/mo", "use": "Pro 3D/motion" },
+    { "tool": "ElevenLabs (AI voice)", "cost": "5 Starter / 22 Creator (~100 min) / 99 Pro (~500 min)", "use": "AI VO" },
+    { "tool": "Hootsuite", "cost": "49-739/mo", "use": "Social scheduling" },
+    { "tool": "Buffer", "cost": "15-65/mo", "use": "Social scheduling" },
+    { "tool": "Sprout Social", "cost": "199-399/user", "use": "Social mgmt/analytics" },
+    { "tool": "Later", "cost": "18-80/mo", "use": "Social scheduling" },
+    { "tool": "ChatGPT / Claude (Pro/Team)", "cost": "~20-30/user", "use": "AI productivity" },
+    { "tool": "Midjourney", "cost": "10-60/mo", "use": "AI imagery" },
+    { "tool": "AWS / Azure", "cost": "usage-based; small app ~50-500/mo", "use": "Hosting/infra" },
+    { "tool": "GitHub", "cost": "0-21/user", "use": "Version control" },
+    { "tool": "PM (Asana/Monday/Jira)", "cost": "8-15/user", "use": "Ops" }
+  ],
+  "blended_tool_stack": "$300-1,500/month depending on headcount + premium tools (Sprout, Maya, large cloud).",
+  "office_hardware": {
+    "egypt": {
+      "coworking_desk_cairo_egp_mo": "5000-9000 (~$95-175)",
+      "private_office_per_seat_egp_mo": "7000-11000 (~$135-215)",
+      "workstation_one_time_egp": "45000-70000 (~$870-1350)",
+      "3d_render_rig_egp": "90000-150000 (~$1740-2900)"
+    },
+    "global": {
+      "office_coworking_usd_desk_mo": "200-800 (many run remote to eliminate)",
+      "workstation_usd": "1200-3000",
+      "render_machine_usd": "2500-6000+"
+    }
+  },
+  "overhead_allocation": {
+    "method": "overhead_per_hour = total monthly overhead / total billable hours; multiply by project hours.",
+    "includes": ["rent/coworking", "tools (above)", "utilities/internet", "insurance", "recruiting", "sales/marketing", "admin", "taxes/fees"],
+    "contingency": "15-25% on project estimates (default 20%)."
+  },
+  "ai_cost_note": "AI-assisted CODING cuts ~10-25% of project cost (not the hyped 50-80%). AI VOICE is the bigger disruptor: ~$0.10-0.50/min generated vs $100-500/finished-hour human. Revisit cost models quarterly."
+}

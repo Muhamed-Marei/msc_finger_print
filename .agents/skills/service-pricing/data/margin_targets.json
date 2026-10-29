@@ -1,0 +1,59 @@
+{
+  "meta": {
+    "purpose": "Margin math (margin != markup), the conversion matrix, and target margins by service. This is the #1 underpricing-error guardrail.",
+    "source": "compass_artifact C; Service Pricing Cost Calculation (margin-vs-markup, conversion matrix). Restores formulas missing from the source doc render."
+  },
+  "formulas": {
+    "cost": "direct labor (hrs x loaded cost/hr) + allocated overhead + pass-through (licenses, stock, cloud, outsourced) + contingency",
+    "profit": "Price - Cost",
+    "markup_pct": "(Price - Cost) / Cost   [seller-centric; denominator = COST]",
+    "margin_pct": "(Price - Cost) / Price  [health metric; denominator = PRICE]",
+    "price_from_markup": "Price = Cost x (1 + Markup%)",
+    "price_from_margin": "Price = Cost / (1 - Margin%)   <-- DEFAULT QUOTING ENGINE",
+    "markup_to_margin": "Margin% = Markup% / (1 + Markup%)",
+    "margin_to_markup": "Markup% = Margin% / (1 - Margin%)",
+    "back_out_margin": "Margin% = (Market Price - Cost) / Market Price"
+  },
+  "critical_warning": {
+    "rule": "Markup and margin are NOT the same. Markup% > Margin% always, for the same transaction.",
+    "worked": "Cost $70, sell $100 -> profit $30. Markup = 30/70 = 42.9%. Margin = 30/100 = 30.0%. Same dollars, different %.",
+    "fatal_error": "Targeting 30% margin but applying 30% MARKUP. $100 cost x 1.30 = $130 -> actual margin = 30/130 = 23% (not 30%). To get 30% margin: Price = 100/0.70 = $142.86 (= 42.9% markup)."
+  },
+  "conversion_matrix": [
+    { "target_gross_margin": "10.0%", "required_markup": "11.1%", "revenue_multiplier": "1.11x" },
+    { "target_gross_margin": "20.0%", "required_markup": "25.0%", "revenue_multiplier": "1.25x" },
+    { "target_gross_margin": "30.0%", "required_markup": "42.9%", "revenue_multiplier": "1.43x" },
+    { "target_gross_margin": "40.0%", "required_markup": "66.7%", "revenue_multiplier": "1.67x" },
+    { "target_gross_margin": "50.0%", "required_markup": "100.0%", "revenue_multiplier": "2.00x" },
+    { "target_gross_margin": "60.0%", "required_markup": "150.0%", "revenue_multiplier": "2.50x" }
+  ],
+  "target_margins_by_service": [
+    { "service": "Mobile/web/ERP project", "model": "Fixed", "target_gross": "40-55%", "target_net": "20-30%", "default_gross": 0.45 },
+    { "service": "Software maintenance", "model": "Retainer", "target_gross": "50-65%", "target_net": "25-35%", "default_gross": 0.55 },
+    { "service": "Dev add-ons", "model": "Hourly", "target_gross": "50-60%", "target_net": "-", "default_gross": 0.55 },
+    { "service": "Social media management", "model": "Retainer", "target_gross": "50-65%", "target_net": "15-25%", "default_gross": 0.55 },
+    { "service": "Ads management", "model": "Retainer / % of spend", "target_gross": "60-75%", "target_net": "20-30%", "default_gross": 0.65 },
+    { "service": "3D video", "model": "Fixed", "target_gross": "45-60%", "target_net": "20-30%", "default_gross": 0.50 },
+    { "service": "Video editing", "model": "Project/retainer", "target_gross": "55-70%", "target_net": "20-30%", "default_gross": 0.60 },
+    { "service": "Voice-over / AI voice", "model": "Project", "target_gross": "70-85% (AI)", "target_net": "high", "default_gross": 0.75 }
+  ],
+  "canonical_defaults": {
+    "software_projects": 0.45,
+    "social_and_video": 0.55,
+    "ads_and_ai_voice": 0.65,
+    "contingency": "15-25% of cost-to-date BEFORE applying margin (use 20% default)",
+    "note": "Egypt-cost delivery sold at GLOBAL price realizes effective gross margin far above these (local labor 5-10x cheaper). Treat surplus as competitive discount OR retained profit — but net it against tax friction first (egypt_tax_2026.json)."
+  },
+  "benchmark_net_margins_2025": {
+    "source": "Promethean Research 2025",
+    "by_discipline": { "design": "18%", "marketing_blended": "13%", "development": "11%", "digital_agency_avg": "13% (down from 14% in 2024)" },
+    "by_size": { "under_10_fte": "19%", "50_plus_fte": "8%" },
+    "specialization": "Agencies that REDUCED services averaged 30% net; those that expanded averaged 10%. Average project margin ~35%.",
+    "diagnostics": {
+      "net_under_10pct": "pricing/utilization/overhead problem -> raise prices or cut waste",
+      "utilization_over_85pct": "underpriced or understaffed -> raise rates or hire",
+      "project_margin_under_30pct": "re-scope, re-price, or drop the service line",
+      "service_over_30pct_net": "scale it — that's your specialist edge"
+    }
+  }
+}

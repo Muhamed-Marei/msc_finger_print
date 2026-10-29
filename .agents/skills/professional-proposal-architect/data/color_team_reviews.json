@@ -1,0 +1,93 @@
+{
+  "purpose": "Formal quality gates separating high-performing capture operations from chaotic ad-hoc editing",
+  "principle": "Iterative, peer-reviewed checkpoints ensuring compliance, persuasion, and strategic alignment",
+  "reviews": {
+    "blue_team": {
+      "timing": "Pre-RFP",
+      "completion_pct": "0%",
+      "focus": "Overarching capture strategy, competitive positioning, initial win themes",
+      "key_questions": [
+        "Is the opportunity worth pursuing? (Go/No-Go validated)",
+        "Are win themes viable and differentiated?",
+        "Is competitive intelligence sufficient for ghosting strategy?",
+        "Are teaming partnerships secured?"
+      ],
+      "exit_criteria": "Approved capture plan with funded resource commitment",
+      "reviewers": "Capture Manager, BD Lead, Executive Sponsor"
+    },
+    "pink_team": {
+      "timing": "20–30% completion",
+      "completion_pct": "20-30%",
+      "focus": "Structural outline, storyboards, initial compliance",
+      "key_questions": [
+        "Are writers correctly interpreting the win strategy?",
+        "Is the compliance matrix fully populated?",
+        "Do storyboards reflect customer-centric messaging?",
+        "Are graphics concepts identified?"
+      ],
+      "exit_criteria": "Validated outlines and storyboards ready for full drafting",
+      "reviewers": "Proposal Manager, Volume Leads, Compliance Lead"
+    },
+    "red_team": {
+      "timing": "60–75% completion",
+      "completion_pct": "60-75%",
+      "focus": "MOST CRITICAL milestone — independent grading against RFP evaluation criteria",
+      "key_questions": [
+        "Does the proposal score competitively against evaluation criteria?",
+        "Are there fatal flaws in compliance, messaging, or technical approach?",
+        "Is the narrative customer-centric or self-congratulatory?",
+        "Are all 7 sources of proof deployed at claim points?",
+        "Would this proposal beat the competition?"
+      ],
+      "exit_criteria": "All fatal flaws identified with remediation plan and owner assigned",
+      "reviewers": "Independent reviewers (NOT original authors), simulating customer evaluation"
+    },
+    "green_team": {
+      "timing": "Near final — pricing volume ready",
+      "completion_pct": "85-90%",
+      "focus": "Financial and pricing volume exclusively",
+      "key_questions": [
+        "Is cost narrative consistent with technical approach?",
+        "Is estimating logic defensible and documented?",
+        "Are hidden costs exposed (ghosting in pricing)?",
+        "Is domestic preference calculation accurate (for MENA)?",
+        "Does pricing support win without sacrificing margin?"
+      ],
+      "exit_criteria": "Pricing authority confirmed, margin approved",
+      "reviewers": "CFO/Finance Lead, Pricing Analyst, Capture Manager"
+    },
+    "gold_team": {
+      "timing": "Final review",
+      "completion_pct": "95-100%",
+      "focus": "Ultimate executive review for submission authority",
+      "key_questions": [
+        "Is organizational risk acceptable?",
+        "Are legal and contractual commitments within policy?",
+        "Is final pricing authorized?",
+        "Are all mandatory signatures and bonds secured?"
+      ],
+      "exit_criteria": "Executive sign-off — authorized for submission",
+      "reviewers": "C-Suite, Legal Counsel, Risk Manager"
+    },
+    "white_team": {
+      "timing": "Post-submission",
+      "completion_pct": "100% (post)",
+      "focus": "Lessons learned, forensics, knowledge capture",
+      "key_questions": [
+        "What worked well in this bid cycle?",
+        "What process breakdowns occurred?",
+        "Which boilerplate content is reusable?",
+        "What competitive intelligence was validated/invalidated?",
+        "How should P-Win scoring be recalibrated?"
+      ],
+      "exit_criteria": "Lessons documented, reusable content archived, P-Win model updated",
+      "reviewers": "Full proposal team"
+    }
+  },
+  "consolidation_options": {
+    "small_firms": "Merge Pink + Red into single mid-cycle evaluation",
+    "simple_contracts": "Skip Green Team for firm-fixed-price contracts",
+    "rapid_turnaround": "Combine Blue + Pink into a single strategy-and-outline gate",
+    "principle": "Maintain core principle of objective evaluation while preserving agility"
+  }
+}
