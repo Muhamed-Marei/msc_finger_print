@@ -1879,7 +1879,7 @@ export default function DashboardPage() {
                             style={{ padding: '4px', borderRadius: 4, background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-primary)', fontSize: '0.8rem' }}
                           />
                         ) : (
-                          <strong>{r.date}</strong>
+                          <strong dir="ltr" style={{ whiteSpace: 'nowrap', unicodeBidi: 'isolate', display: 'inline-block' }}>{r.date}</strong>
                         )}
                       </td>
 
@@ -1911,7 +1911,7 @@ export default function DashboardPage() {
                         ) : (
                           <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 4, flexWrap: 'wrap' }}>
                             {r.check_in_1 ? (
-                              <span style={{ fontWeight: 600 }}>{r.check_in_1}</span>
+                              <span dir="ltr" style={{ fontWeight: 600, unicodeBidi: 'isolate', display: 'inline-block' }}>{r.check_in_1}</span>
                             ) : (r.key_warning === 'end_of_24h' || (!r.check_in_1 && r.check_out_1 && ['24H', '24+A', '24+A+B'].includes(r.shift_type))) ? (
                               <span style={{
                                 background: 'rgba(99, 102, 241, 0.12)',
@@ -1975,7 +1975,7 @@ export default function DashboardPage() {
                         ) : (
                           <div style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 4, flexWrap: 'wrap' }}>
                             {r.check_out_1 ? (
-                              <span style={{ fontWeight: 600 }}>{r.check_out_1}</span>
+                              <span dir="ltr" style={{ fontWeight: 600, unicodeBidi: 'isolate', display: 'inline-block' }}>{r.check_out_1}</span>
                             ) : (r.key_warning === 'start_of_24h' || (r.check_in_1 && !r.check_out_1 && r.key_warning === 'start_of_24h')) ? (
                               <span style={{
                                 background: 'rgba(59, 130, 246, 0.12)',
@@ -2009,7 +2009,7 @@ export default function DashboardPage() {
                             style={{ width: 85, textAlign: 'center', padding: '4px', borderRadius: 4, background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-primary)', fontSize: '0.8rem' }}
                           />
                         ) : (
-                          <span style={{ color: r.check_in_2 ? 'var(--text-primary)' : 'var(--text-muted, #94a3b8)', fontWeight: r.check_in_2 ? 600 : 400 }}>
+                          <span dir="ltr" style={{ color: r.check_in_2 ? 'var(--text-primary)' : 'var(--text-muted, #94a3b8)', fontWeight: r.check_in_2 ? 600 : 400, unicodeBidi: 'isolate', display: 'inline-block' }}>
                             {r.check_in_2 || '-'}
                           </span>
                         )}
@@ -2026,7 +2026,7 @@ export default function DashboardPage() {
                             style={{ width: 85, textAlign: 'center', padding: '4px', borderRadius: 4, background: 'var(--bg-primary)', border: '1px solid var(--border-color)', color: 'var(--text-primary)', fontSize: '0.8rem' }}
                           />
                         ) : (
-                          <span style={{ color: r.check_out_2 ? 'var(--text-primary)' : 'var(--text-muted, #94a3b8)', fontWeight: r.check_out_2 ? 600 : 400 }}>
+                          <span dir="ltr" style={{ color: r.check_out_2 ? 'var(--text-primary)' : 'var(--text-muted, #94a3b8)', fontWeight: r.check_out_2 ? 600 : 400, unicodeBidi: 'isolate', display: 'inline-block' }}>
                             {r.check_out_2 || '-'}
                           </span>
                         )}
